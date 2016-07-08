@@ -1,0 +1,92 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#sites-sidebar { 
+    width: 200px;
+    height: 100%;
+    border-right: 1px solid #e0e0e0;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+
+#sites-sidebar > .logo {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 8px;
+}
+
+#sites-sidebar > .logo > h3 {
+    margin: 0;
+}
+
+#sites-sidebar ul.languages {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin-top: 61px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#sites-sidebar ul.languages > li > .title {
+    cursor: pointer;
+}
+
+#sites-sidebar ul.sites {
+    
+}
+
+#sites-sidebar ul.sites > li {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#sites-sidebar ul.sites > li.active {
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 2px 3px 10px #e0e0e0;
+    cursor: default;
+}
+
+#sites-sidebar ul.sites > li > img {
+    float: left;
+    width: 48px;
+    margin-right: 5px;
+}
+
+#sites-sidebar ul.sites > li > .info {
+
+}
+
+#sites-sidebar ul.sites > li > .info > .name {
+
+}
+
+#sites-sidebar ul.sites > li > .info > .total {
+
+}
+
+#sites-sidebar ul.sites > li > .info > .date {
+
+}
+
+#sites-sidebar ul.sites > li > .info > .noupdate {
+    color: #b9b9b9;
+}
+
+#mangalist-sidebar {
+    float: left;
+}
+

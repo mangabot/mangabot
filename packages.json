@@ -1,0 +1,17 @@
+{
+  "name": "mangabot",
+  "version": "3.0",
+  "description": "",
+  "scripts": {
+    "start": "gulp build --profile dev && gulp serve"
+  },
+  "keywords": [],
+  "author": "Duy Tran",
+  "license": "MIT",
+  "devDependencies": {
+      
+  },
+  "dependencies": {
+      
+  }
+}
