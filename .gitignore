@@ -4,3 +4,4 @@ vendors/
 build/
 bin/
 dist/
+gulp-cache/

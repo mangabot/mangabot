@@ -1,0 +1,128 @@
+#lm-duplication .header {
+    padding: 0;
+    vertical-align: middle;
+}
+
+#lm-duplication .header div {
+    display: inline-block;
+}
+#lm-duplication .header div.icon {
+    border-top-left-radius: 3px; 
+    background: #EBB215;
+    padding: 8px 8px 7px 7px;
+}
+#lm-duplication .header div.icon i {
+    font-size: 20px;   
+    color: #FFFFFF;
+    margin: 0;
+}
+#lm-duplication .header .title span {
+    font-weight: bold;
+    color: #EBB215;
+    padding: 0 4px 0 8px;
+}
+#lm-duplication .header div.info {
+    color: #0284CA;
+    font-size: 12px;
+    float: right;
+    margin: 8px 15px 0px 0px;
+    vertical-align: middle;
+}
+
+#lm-duplication .header div.info .info {
+    margin-right: 0px;
+}
+
+#lm-duplication .content {
+    min-height: 350px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+#lm-duplication .content .duplication {
+    margin-bottom: 15px;
+}
+
+#lm-duplication .content .duplication .case div {
+    display: inline-block;
+}
+
+#lm-duplication .content .duplication .case .number {
+    color: #EBB215;
+    font-weight: 400;
+}
+
+#lm-duplication .content .duplication .conflict {
+    color: #EBB215;
+}
+html body .ldpi #lm-duplication .content .duplication .conflict {
+    font-weight: bold;
+}
+
+#lm-duplication .content .duplication .detail .contact > div {
+    display: inline-block;
+}
+
+#lm-duplication .content .duplication .detail {
+    padding-left: 10px;
+}
+
+#lm-duplication .contact .name {
+    width: 15%;
+    text-overflow: ellipsis;
+}
+
+#lm-duplication .contact .email {
+    width: 30%;
+    text-overflow: ellipsis;
+}
+
+#lm-duplication .contact .phone {
+    width: 20%;
+    text-overflow: ellipsis;
+}
+
+#lm-duplication .contact .info {
+    width: 10%;
+}
+
+#lm-duplication .contact .more {
+    color: #626163;
+    border-bottom:1px dashed #0284CA;
+    padding-bottom:2px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#lm-duplication .contact .ui.action.dropdown {
+    min-width: 144px;
+}
+
+#lm-duplication .contact .ui.action.dropdown.main {
+    background-color: #2185d0;
+    color: #fff;
+    box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+    border-color: transparent;
+    font-weight: bold;
+}
+
+
+#lm-duplication .contact .ui.button {
+    background: transparent;
+    border: 1px solid #CECECE;
+    padding: 10px 20px;
+    font-weight: 400;
+    font-family: 'Source Sans Pro', sans-serif!important;
+}
+
+#lm-duplication .actions .skip {
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#lm-duplication .content .contact {
+    border-bottom: 1px solid #EAEAEA;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

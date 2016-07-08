@@ -1,0 +1,37 @@
+#lm-edit .list-info {
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+#lm-edit .label {
+    font-weight: 400;
+    color: #635F67;
+    display: inline-block;
+    width: 65px;
+}
+#lm-edit .old-name {
+    /*margin-left: 10px;*/
+    color: #635F67;
+    font-weight: 400;
+}
+#lm-edit .list-name {
+    display: inline-block;
+}
+#lm-edit .list-name .label {
+    line-height: 30px;
+}
+#lm-edit .message {
+    /*display: inline-block;
+    vertical-align: bottom;
+    margin-left: -5px;*/
+    height: 20px;
+    color: #BC4040;
+}
+#lm-edit input {
+    font-weight: 300!important;
+    width: 240px!important;
+}
+#lm-edit input.error {
+    background: #fff6f6;
+    border-color: #e0b4b4;
+    color: #9f3a38;
+}

@@ -1,0 +1,28 @@
+<div class="pagination-bar">
+    <div class="indicator">
+        <div *ngIf="totalPageItems > 0" class="info">
+            Viewing {{itemRange}} of {{totalItems}} list<span *ngIf="totalItems > 1">s</span>
+        </div>
+        <div *ngIf="pages.length > 1" class="ui pagination small menu">
+            <a [class.disabled]="fromPage < pagesPerSection" class="icon item" (click)="onSelect(fromPage - pagesPerSection)">
+                <i class="angle double left icon"></i>
+            </a>
+            <a [class.disabled]="currentPage == 0" class="icon item" (click)="onSelect(currentPage - 1)">
+                <i class="left angle icon"></i>
+            </a>
+            <a *ngFor="#page of pages" [class.active]="currentPage == page"  class="item" (click)="onSelect(page)">
+                {{page + 1}}
+            </a>
+            <a [class.disabled]="currentPage == toPage" class="icon item" (click)="onSelect(currentPage + 1)">
+                <i class="right angle icon"></i>
+            </a>
+            <a [class.disabled]="fromPage + pagesPerSection >= totalPages" class="icon item"
+                (click)="onSelect(toPage + 1)"
+                >
+                <i class="angle double right icon"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+</div>

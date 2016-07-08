@@ -1,0 +1,50 @@
+.action-bar {
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #E3E5E6;
+    padding-bottom: 1px; 
+    background: #F6F6F6;
+}
+
+.action-bar .select-indicator {
+    margin: 8px 0px 0px 28px;
+}
+.action-bar .select-indicator a {
+    cursor: pointer;
+}
+.action-bar .actions {
+    padding: 5px 0px;
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.action-bar .actions .divider {
+    display: inline-block;
+    height: 31px;
+    margin-bottom: 1px;
+    width: 1px;
+    background: #DADADA;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+.action-bar .left-action-box {
+    display: inline-block;
+}
+
+.action-bar .right-action-box {
+    float: right;
+    margin-right: 20px;
+}
+
+.action-bar .right-action-box button {
+    margin-right: 10px; 
+}
+
+.action-bar .search-box {
+    margin-right: 10px; 
+    width: 230px;
+}
+
+.action-bar .search-box input {
+    padding: 8px;
+}

@@ -1,0 +1,25 @@
+<div class="ui tiny modal" id="lm-edit">
+  <div class="header">
+      <div class="title">EDIT LIST</div>
+  </div>
+  <div class="content">
+      <div class="ui form">
+        <div *ngIf="list" class="list-info">
+            <div class="label">Old name:</div> <span class="old-name">{{list.name}}</span>
+        </div>
+        <div class="ui equal width grid">
+            <div class="list-name column">
+                <div class="label">New name:</div>
+                <input [class.error]="isError" type="text" [ngFormControl]="name"/>
+            </div>
+            <div *ngIf="isError" class="message five wide column">
+                This name is already taken
+            </div>
+        </div>
+      </div>
+  </div>
+  <div class="actions">
+    <div class="ui cancel button">Cancel</div>
+    <div *ngIf="list" [class.disabled]="isError" (click)="canEdit()" class="ui primary ok button">Save</div>
+  </div>
+</div>

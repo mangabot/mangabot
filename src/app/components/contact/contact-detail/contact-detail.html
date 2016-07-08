@@ -1,0 +1,86 @@
+<div class="contact-detail" *ngIf="detail">
+    <div class="actions">
+        <div class="left"><i class="icon close" (click)="close()"></i></div> 
+        <div class="right">
+            <button class="ui blue button" (click)="edit()">Edit</button>
+            <div class="ui dropdown icon button">
+                <i class="ellipsis horizontal icon"></i>
+                <div class="menu">
+                    <a class="item" href="{{csvData()}}" download="{{getCsvName()}}.csv">
+                        Export contact
+                    </a>
+                    <div class="item" (click)="makeACopy()">
+                        Make a copy
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="basic">
+        <div class="title" *ngIf="detail.contact.title">
+            {{detail.contact.title}}
+        </div>
+        <div class="name">
+            <span *ngIf="detail.contact.name">{{detail.contact.name}}</span>
+            <span *ngIf="!detail.contact.name">n/a</span>
+        </div>
+        <div class="company" *ngIf="detail.contact.company || detail.contact.jobTitle">
+            {{detail.contact.jobTitle}}<span *ngIf="detail.contact.company && detail.contact.jobTitle"> at </span>{{detail.contact.company}}
+        </div>
+        <div (click)="showDuplicationInfo(detail.contact)" *ngIf="detail.contact.duplicateIds.length > 0" class="duplication">
+            <i class="copy icon"></i> duplicate with {{detail.contact.duplicateIds.length}}
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="detail">
+        <div class="record" *ngIf="detail.contact.emails && detail.contact.emails.length > 0">
+            <div class="header">
+                Email
+            </div>
+            <div class="item" *ngFor="#email of detail.contact.emails">
+                <div class="label">{{email.label.toLowerCase()}}</div> <span>{{email.emailAddress}} </span> 
+                <div class="copy"><clipboard-item [data]="email.emailAddress"></clipboard-item></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="record" *ngIf="detail.contact.phones && detail.contact.phones.length > 0">
+            <div class="header">
+                Phone
+            </div>
+            <div class="item" *ngFor="#phone of detail.contact.phones">
+                <div class="label">{{phone.label.toLowerCase()}}</div> <span>{{phone.phoneNumber}} </span>
+                <div class="copy"><clipboard-item [data]="phone.phoneNumber"></clipboard-item></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="record location" *ngIf="detail.contact.streetAddress || detail.contact.state || detail.contact.country">
+            <i class="marker icon"></i>
+            <span *ngIf="detail.contact.streetAddress">{{detail.contact.streetAddress}}</span>
+            <span *ngIf="detail.contact.streetAddress && (detail.contact.state || detail.contact.country)">, </span>
+            <span *ngIf="detail.contact.state">{{detail.contact.state}}</span>
+            <span *ngIf="detail.contact.state && detail.contact.country">, </span>
+            <span *ngIf="detail.contact.country">{{detail.contact.country}}</span>
+        </div>
+        <div class="record" *ngIf="lists.length > 0">
+            <div class="header">
+                List
+            </div>
+            <div class="item" *ngFor="#list of lists">
+                <i class="list icon"></i> <a href="#" (click)="viewList(list.id)" [routerLink]="['Contact', {listId: list.id}]">{{list.name}} <span class="note" *ngIf="list.id == detail.listId">(this list)</span></a>
+            </div>
+        </div>
+    </div>
+    <!--<div class="divider"></div>
+    <div class="detail">
+        <div class="record">
+            <div class="header">
+                Change log:
+            </div>
+            <div class="item">
+                <div class="label"><i class="refresh icon"></i></div> <span>Paul Smith changed email to 'kei7h.harper@gmail.com'</span> 
+                <div class="sub header">2 days ago</div>
+            </div>
+        </div>
+    </div>-->
+</div>

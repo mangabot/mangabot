@@ -1,0 +1,32 @@
+<div class="action-bar">
+    <div class="actions">
+        <div class="left-action-box">
+            <div class="select-indicator" *ngIf="actionInfo && (actionInfo.mode == 'PAGE' || actionInfo.mode == 'ALL')">
+                <span *ngIf="actionInfo.mode == 'PAGE'">
+                    <span>
+                        All <b>{{actionInfo.items.length}}</b> lists on this page are selected. 
+                    </span>
+                    <span> <a (click)="selectAll.emit(true)">Select all <b>{{actionInfo.total}}</b> lists</a></span>
+                </span>
+                <span *ngIf="actionInfo.mode == 'ALL'">
+                    <span>All {{actionInfo.total}} lists are selected.</span>
+                    <span> <a href="#" (click)="clearSelection.emit(true)">Clear selection</a></span>
+                </span>
+            </div>
+        </div>
+        <div class="right-action-box">
+            <button *ngIf="canEdit()" class="ui blue button" (click)="edit()">
+                Edit
+            </button>
+            <button *ngIf="canDelete()" class="ui blue button" (click)="delete()">
+                Delete
+            </button>
+            <div *ngIf="canDelete() || canEdit()" class="divider"></div>
+            <div class="ui left icon input search-box">
+                <input [(ngModel)]="keyword" (keyup.enter)="requestSearch()" type="text" placeholder="Search...">
+                <i class="search icon"></i>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+.contact-header-bar {
+    height: 90px;
+    min-height: 90px;
+    background: #E1E3E4;
+    padding: 15px 0px 0px 20px;
+}
+.contact-header-bar .indicator {
+    color: #706875;
+}
+.contact-header-bar .indicator .reply {
+    cursor: pointer;
+}
+.contact-header-bar .list-info {
+    margin-left: 9px;
+    margin-top: 8px; 
+}
+.contact-header-bar .list-info .stitched {
+    height: 20px;
+    width: 10px;
+    border-left: 1px dashed #47A1D1;
+    border-bottom: 1px dashed #47A1D1;
+    display: inline-block;
+    vertical-align: top;
+}
+.contact-header-bar .list-info .content {
+    margin-top: 10px; 
+    color: #595F62;
+    display: inline-block;
+}
+.contact-header-bar .list-info .content .name {
+    font-weight: 300;
+    font-size: 28px;
+}
+.contact-header-bar .list-info .content .actions {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 1px;
+}
+.contact-header-bar .list-info .content .actions i {
+    font-size: 16px;
+    margin-right: 5px;
+    vertical-align: top;
+}
+.contact-header-bar .list-info .content .actions i.star {
+    color: #EBB215;
+}
+.contact-header-bar .list-info .content .actions i.empty.star {
+    color: #595959;
+}
+.contact-header-bar .list-info .content .actions i.setting {
+    margin-right: 15px;
+}
+.contact-header-bar .info {
+    float: right;
+    color: #5B5B5C;
+    font-size: 35px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.contact-header-bar .info .item  {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+.contact-header-bar .info .item .count {
+    display: inline-block;
+    font-weight: 400;
+}
+.contact-header-bar .info .item .title {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.contact-header-bar .info .item.duplication {
+    color: #EBB215;
+}
+.contact-header-bar .info .item.list .title {
+    width: 55px;
+}
+.contact-header-bar .info .item.duplication .title {
+    width: 65px;
+}

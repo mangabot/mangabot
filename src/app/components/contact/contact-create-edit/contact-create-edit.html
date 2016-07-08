@@ -1,0 +1,191 @@
+<div class="contact-create-edit ui form" *ngIf="detail">
+    <div class="actions">
+        <div class="left"><i class="icon close" (click)="close()"></i></div> 
+        <div class="right">
+            <a (click)="discard()">Discard</a>
+            <button class="ui blue button" [class.disabled]="!canSave()" (click)="save()">Save</button>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section">
+        <div class="title">
+            <div class="ui radio checkbox mr">
+                <input type="radio" name="title" checked>
+                <label>Mr.</label>
+            </div>
+            <div class="ui radio checkbox ms">
+                <input type="radio" name="title">
+                <label>Ms.</label>
+            </div>
+            <div class="ui radio checkbox mrs">
+                <input type="radio" name="title">
+                <label>Mrs.</label>
+            </div>
+        </div>
+        <div class="eleven wide field">
+            <label>First name:</label>
+            <input [(ngModel)]="detail.contact.firstName" maxlength="100"/>
+        </div>
+        <div class="eleven wide field">
+            <label>Last name:</label>
+            <input [(ngModel)]="detail.contact.lastName" maxlength="100"/>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+        <div class="eleven wide field">
+            <label>Job title:</label>
+            <input [(ngModel)]="detail.contact.jobTitle" maxlength="100"/>
+        </div>
+        <div class="eleven wide field">
+            <label>Company:</label>
+            <input [(ngModel)]="detail.contact.company" maxlength="100"/>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="section field">
+        <label>Email</label>
+        <div class="inline fields email-selector" *ngFor="#emailInfo of emailInfos;#emailIndex=index">
+            <div class="twelve wide field">
+                <div class="ui icon fluid input">
+                    <input type="email" [(ngModel)]="updatedEmailInfos[emailIndex].emailAddress" maxlength="125" [class.error]="!isValidEmail(updatedEmailInfos[emailIndex].emailAddress)"/>
+                    <i [class.selected]="defaultEmailIndex == emailIndex" class="blue radio link icon default-email" (click)="selectDefaultEmailAddress(emailIndex)" 
+                    [attr.data-variation]="'tiny'"
+                    [attr.data-html]="getSelectorPopup('address')"
+                    >
+                    </i>
+                </div>
+            </div>
+            <div class="four wide field">
+                <div class="ui fluid selection dropdown email-label">
+                    <input type="hidden">
+                    <i class="dropdown icon"></i>
+                    <span class="text">
+                        {{emailInfo.label.toLowerCase()}}
+                    </span>
+                    <div class="menu">
+                        <div class="item" [attr.data-value]="emailIndex + '-' + 'WORK'">
+                            Work
+                        </div>
+                        <div class="item" [attr.data-value]="emailIndex + '-' + 'HOME'">
+                            Home
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <i class="remove icon" (click)="removeEmailAddress(emailIndex)"></i>
+            </div>
+        </div>
+        <div><a (click)="addNewEmail()">+ Add new email address</a></div>
+    </div>
+    <div class="divider"></div>
+    <div class="section field">
+        <label>Phone number</label>
+        <div class="inline fields phone-selector" *ngFor="#phoneInfo of phoneInfos;#phoneIndex = index">
+            <div class="five wide field">
+                <div class="ui fluid selection dropdown phone">
+                    <input type="hidden">
+                    <i class="dropdown icon"></i>
+                    <span class="text">
+                        <div><i class="{{phoneInfo.countryId}} flag"></i></div>+{{phoneInfo.code}}
+                    </span>
+                    <div class="menu">
+                        <div *ngFor="#country of countries" [attr.data-value]="phoneIndex + '-' + country.id" class="item">
+                            <div><i class="{{country.id}} flag"></i></div>+{{country.code}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seven wide field">
+                <div class="ui icon fluid input">
+                    <input type="tel" max="12" [(ngModel)]="updatedPhoneInfos[phoneIndex].number" [class.error]="!isValidNumber(updatedPhoneInfos[phoneIndex].number)"/>
+                    <i [class.selected]="defaultPhoneIndex == phoneIndex" class="blue radio link icon default-phone" (click)="selectDefaultPhoneNumber(phoneIndex)"
+                    [attr.data-variation]="'tiny'"
+                    [attr.data-html]="getSelectorPopup('number')" ></i>
+                </div>
+            </div>
+            <div class="four wide field">
+                <div class="ui fluid selection dropdown phone-label">
+                    <input type="hidden">
+                    <i class="dropdown icon"></i>
+                    <span class="text">
+                        {{phoneInfo.label.toLowerCase()}}
+                    </span>
+                    <div class="menu">
+                        <div class="item" [attr.data-value]="phoneIndex + '-' + 'WORK'">
+                            Work
+                        </div>
+                        <div class="item" [attr.data-value]="phoneIndex + '-' + 'HOME'">
+                            Home
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <i class="remove icon" (click)="removePhoneNumber(phoneIndex)"></i>
+            </div>
+        </div>
+        <div><a (click)="addNewNumber()">+ Add new phone number</a></div>
+    </div>
+    <div class="divider"></div>
+    <div class="section field">
+        <label>List</label>
+        <div class="field">
+            <div class="ui fluid suggestor input">
+                <input placeholder="type to add to other list" [ngFormControl]="listName" maxlength="100"/>
+            </div>
+            <div class="ui suggestor top center popup">
+                <div class="existing-list">
+                    Existing
+                </div>
+                <div *ngFor="#item of suggestItems" class="item" (click)="addList(item)" >
+                    <i class="list icon"></i> {{item.name}} <i *ngIf="item.star" class="star icon"></i>
+                </div>
+                <div *ngIf="suggestItems.length == 0" class="info">
+                    <i>No record found</i>
+                </div>
+                <div class="divider"></div>
+                <div *ngIf="listName.value.trim().length > 0 && !hasName(listName.value) && !existingName(listName.value)" 
+                    (click)="addList({name: listName.value.trim()})"
+                    class="info item">
+                    + Create new list name <span class="em">“{{listName.value.trim()}}”</span>
+                </div>
+                <div *ngIf="hasName(listName.value)" class="info">
+                    <span><span class="em">“{{listName.value.trim()}}”</span> was already selected</span>
+                </div>
+                <div *ngIf="existingName(listName.value) && !hasName(listName.value)" class="info">
+                    <span><span class="em">“{{listName.value.trim()}}”</span> is existing</span>
+                </div>
+                <div *ngIf="listName.value.trim().length == 0" class="info">
+                    <i>Enter list name to create</i>
+                </div>
+            </div>
+        </div>
+        <div *ngFor="#list of lists;#index=index" class="list-item">
+            <i class="list icon"></i> {{list.name}} <i class="remove icon" (click)="removeList(index)"></i>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="section field">
+        <label>Address</label>
+        <div class="field">
+            <div class="ui fluid input">
+                <input placeholder="Streed address" [(ngModel)]="detail.contact.streetAddress" maxlength="120"/>
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <div class="ui fluid input">
+                    <input placeholder="city" [(ngModel)]="detail.contact.city" maxlength="100"/>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui fluid input">
+                    <input placeholder="State" [(ngModel)]="detail.contact.state" maxlength="100"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

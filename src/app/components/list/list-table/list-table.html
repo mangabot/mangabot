@@ -1,0 +1,24 @@
+<div class="list-table">
+    <action-bar 
+            (search)="search($event)" 
+            (selectAll)="selectAll()"
+            (clearSelection)="clearSelection()"
+            [actionInfo]="actionInfo"></action-bar>
+            
+    <div class="ui segment">
+        <div [class.active]="loading" class="ui inverted dimmer">
+            <div class="ui loader"></div>
+        </div>
+        <table-content 
+            #tableContent
+            (refresh)="refresh()"
+            (selectionChange)="selectionChange($event)"
+            [initialized]="initialized" 
+            [loading]="loading"
+            [contactLists]="pageData.contactLists" 
+            [user]="userService.getCurrentUser()"
+            ></table-content>
+    </div>
+    <pagination-bar #paginationBar [itemsPerPage]="pageData.query.size" (onPageChange)="getPage($event)"></pagination-bar>
+</div>
+<div class="footer"></div>

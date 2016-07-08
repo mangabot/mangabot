@@ -1,0 +1,159 @@
+.contact-create-edit {
+    padding: 10px 0px 20px 10px;
+    width: 100%;
+}
+
+.contact-create-edit .actions {
+    padding-right: 10px;
+}
+
+.contact-create-edit .icon.close {
+    cursor: pointer;
+    color: #8A8A8A;
+    font-size: 13px;
+    margin: 5px 0px;
+}
+
+.contact-create-edit div.left {
+    display: inline-block;
+}
+
+.contact-create-edit .button {
+    padding: 8px;
+}
+
+.contact-create-edit a {
+    margin-right: 10px; 
+    cursor: pointer;
+}
+
+.contact-create-edit div.right {
+    float: right;
+}
+
+.contact-create-edit .ui.radio.checkbox {
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.contact-create-edit .field {
+    padding: 0px 5px 0px 0px!important;
+    margin-bottom: 10px;
+}
+.contact-create-edit .field input {
+    font-family: 'Source Sans Pro', sans-serif!important;
+    padding: 5px 8px;
+    color: #8C9596;
+    font-weight: 400;
+    font-size: 12px;
+}
+.contact-create-edit .ui.radio.checkbox label {
+    padding-left: 20px;
+    color: #98A0A4;
+}
+.contact-create-edit .section {
+    margin-top: 10px;
+}
+.contact-create-edit .section.field {
+    margin-bottom: -9px!important;
+    padding-bottom: 0px!important;
+}
+.contact-create-edit label {
+    color: #635F67!important;
+}
+.contact-create-edit .divider {
+    width: 75px;
+    height: 1px;
+    background: #F1F1F1;
+    margin: 25px 0px 10px 0px;
+}
+.contact-create-edit .ui.icon.fluid input {
+    padding: 5px 5px;
+    width: 100%!important;
+}
+.contact-create-edit .ui.fluid.dropdown {
+    padding: 5px 4px;
+    width: 100%!important;
+    font-size: 12px;
+    min-height: 20px;
+    height: 26px;
+    line-height: 13px;
+}
+.contact-create-edit .ui.dropdown .dropdown.icon {
+    padding: 11px 3px;
+}
+.contact-create-edit .ui.icon.fluid.input .icon {
+    font-size: 15px;
+    width: 24px;
+}
+.contact-create-edit .dropdown.icon {
+    outline: none;
+}
+.contact-create-edit .dropdown .menu .item {
+    padding: 5px 3px!important;
+    text-align: center;
+}
+.contact-create-edit .text div,  .contact-create-edit .menu .item div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.contact-create-edit .list.icon {
+    color: #BEBEBE;
+}
+.contact-create-edit .add-to-list {
+    margin-top: 5px;
+}
+.contact-create-edit .phone-label .text {
+    text-transform: capitalize;
+}
+.contact-create-edit input.error {
+    border-color: #e0b4b4;
+    color: #9f3a38;
+}
+.contact-create-edit .icon.remove {
+    color: #6B6B6B;
+    cursor: pointer;
+    visibility: hidden;
+}
+.contact-create-edit .phone-selector:hover .icon.remove, 
+.contact-create-edit .email-selector:hover .icon.remove, 
+.contact-create-edit .list-item:hover .icon.remove {
+    visibility: visible;
+}
+.contact-create-edit .list-item {
+    cursor: default;
+}
+.contact-create-edit .suggestor .item,  .contact-create-edit .suggestor .info {
+    font-family: 'Source Sans Pro', sans-serif!important;
+    padding: 5px 8px;
+    font-size: 12px;
+    font-weight: 300;
+    cursor: pointer;
+}
+.contact-create-edit .suggestor .existing-list {
+    font-family: 'Source Sans Pro', sans-serif!important;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0px 8px;
+}
+.contact-create-edit .suggestor .divider {
+    background: rgba(170, 170, 170, 0.22);
+    height: 1px;
+    width: 239px;
+    padding: 0px;
+    margin: 0px;
+}
+.contact-create-edit .suggestor .item:hover {
+    background: #f0f0f0;
+}
+.contact-create-edit .em {
+    font-weight: 400;
+}
+
+.contact-create-edit .suggestor.popup {
+    padding: 8px 0px;
+    width: 240px;
+}
+
+.contact-create-edit .star.icon {
+    color: #EBB215;
+}

@@ -1,0 +1,66 @@
+<div class="ui modal" id="lm-import">
+    <div class="header">
+        IMPORT A FILE
+    </div>
+    <div class="content">
+        <div class="ui form">
+            <div class="field">
+                <label>Uploading progress</label>
+                <div class="field">
+                    <div class="fifteen wide field file-info">
+                        <div class="upload-info">{{fileName}} <span>{{uploadEvent.percentage}}%</span></div>
+                        <div class="ui active tiny blue progress">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="field cancel-control">
+                        <i *ngIf="uploadEvent.percentage != 100" class="gray remove icon" (click)="uploader.cancel()"></i>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="eleven wide field">
+                    <label>
+                        Select a list:
+                        <div class="star-control"><i (click)="stared=!stared" [class.empty]="!stared" class="star icon"></i> Star this list?</div>
+                    </label>
+                    <div class="ui fluid multiple search selection dropdown">
+                        <input type="hidden"/>
+                        <div class="text"></div>
+                        <div class="menu">
+                            <div *ngIf="canCreate(listName)" class="item" [attr.data-value]="'add-listName'">
+                                + Create new list name <span class="em">“{{listName.trim()}}”</span>
+                            </div>
+                            <div *ngIf="listName.trim().length == 0 && canCreate(removeExt(fileName))" class="item" [attr.data-value]="'add-fileName'">
+                                + Create new list name <span class="em">“{{removeExt(fileName)}}”</span>
+                            </div>
+                            <div *ngIf="options.length > 0" class="divider"></div>
+                            <div *ngIf="options.length > 0" class="header">
+                                Existing list:
+                            </div>
+                            <div class="item" *ngFor="#option of options" [attr.data-value]="option.id + '|' + option.stared">
+                                {{option.name}} <i *ngIf="option.stared" class="star icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="instruction">
+                <div class="icon"><i class="info circle icon"></i></div>
+                <div class="description">
+                    <div class="header">Did you know:</div>
+                    <div>You can update an existing list by uploading a new file to the same list?</div>
+                    <div>We will automatically filter out the duplicates and add the new entries.</div>
+                </div>
+            </div>
+        </div>
+        <form id="upload">
+            <input type="file" (change)="onFileChange($event)" id="file" accept="text/csv"/>
+        </form>
+    </div>
+    <div class="actions">
+        <div class="ui cancel button">Cancel</div>
+        <div class="ui blue ok button" [class.disabled]="!canImport()" (click)="import()">Import</div>
+    </div>
+</div>

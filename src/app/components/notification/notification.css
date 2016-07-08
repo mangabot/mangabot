@@ -1,0 +1,53 @@
+.notification {
+    z-index: 999;
+    position: absolute;
+    margin-top: 5px;
+    right: 5px;
+    width: 250px;
+    background: #fff;
+    min-height: 50px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.notification table {
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    font-size: 12px;
+}
+.notification table .header {
+    font-size: 13px;
+    font-weight: 400;
+}
+.notification table .meta {
+    font-weight: 400;
+}
+.notification td.status {
+    width: 15px;
+    vertical-align:middle;
+    text-align:center; 
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    height: 100%;
+    background: #67A720;
+}
+.notification td.status.error {
+    background: #E57474;
+}
+.notification td.status i {
+    margin: 0px 3px 10px 3px;
+    color: #fff;
+    font-size: 10px;
+}
+.notification td.content .close.icon {
+    cursor: pointer;
+    float: right;
+    margin: 0px;
+    font-size: 12px;
+    padding: 0px;
+    color: #999999;
+}
+.notification td.content {
+    padding: 10px;
+}
