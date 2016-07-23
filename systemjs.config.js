@@ -1,7 +1,7 @@
-(function (global) {
+(function(global) {
     // map tells the System loader where to look for things
     var map = {
-        'app': 'src/app', // 'dist',
+        'app': 'build/app', // 'dist',
         '@angular': 'node_modules/@angular',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs': 'node_modules/rxjs'
@@ -36,9 +36,9 @@
     var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
     // Add package entries for angular packages
     ngPackageNames.forEach(setPackageConfig);
-    var config = {
+
+    System.config({
         map: map,
         packages: packages
-    };
-    System.config(config);
+    });
 })(this);

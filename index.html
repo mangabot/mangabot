@@ -3,21 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard</title>
+    <title>Contact Manager</title>
+    <base href="{{APP_URL}}">
     <link rel="shortcut icon" type="image/png" href="assets/images/logo.png" />
-
     <!-- inject:css -->
-    <link rel="stylesheet" href="app.css">
     <!-- endinject -->
 
     <!-- inject:js -->
     <!-- endinject -->
-
-     <!-- Polyfill(s) for older browsers -->
-    <script src="vendors.js"></script>
-    <script src="systemjs.config.js"></script>
     <script>
-        System.import('app').then(null, console.error(console));
+        System.config({
+        packages: {
+            app: {
+                format: 'register',
+                defaultExtension: 'js'
+            }
+        }
+      });
+      System.import('app/components/app')
+            .then(null, console.error.bind(console));
     </script>
 </head>
 

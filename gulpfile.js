@@ -1,34 +1,23 @@
+'use strict';
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var copy = require('gulp-copy');
+var plugins = require('gulp-load-plugins')({ lazy: true });
+var runSequence = require('run-sequence').use(gulp);
 var del = require('del');
-var runSequence = require('gulp-sequence');
-var concat = require('gulp-concat');
-var fs = require('fs');
-var package = JSON.parse(fs.readFileSync('package.json'));
+var sass = require('./tasks/sass.js')({ dest: 'build' });
+var ts = require('./tasks/typescript.js')({ dest: 'build' });
 
 gulp.task('clean', function () {
-    return del('build');
+    return del(['build', 'bin']);
 });
 
-gulp.task('copy', function () {
-    return gulp.src([
-        'index.html', 'src/app/**/*.js', 'src/app/**/*.html',
-        'systemjs.config.js'
-    ])
-        .pipe(copy('build'));
+gulp.task('build', runSequence('clean', [
+    'sass', 'typescript'
+]));
+
+gulp.task('watch', function () {
+    gulp.watch('src/**/*.ts', ['scripts']);
+    gulp.watch('src/**/*.css', ['styles']);
+    gulp.watch('src/**/*.html', ['templates']);
 });
 
-gulp.task('sass', function () {
-    return gulp.src('src/app/**/*.scss', { base: 'src/app' })
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('build'));
-});
-
-gulp.task('vendors', function () {
-    return gulp.src(package.dependencies)
-        .pipe(concat('vendors.js'))
-        .pipe(gulp.dest('build'));
-});
-
-gulp.task('build', runSequence('clean', 'copy', 'vendors', 'sass'));
+gulp.task('default', ['build']);

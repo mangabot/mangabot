@@ -1,7 +1,9 @@
+**/obj/**
+**/bin/**
+*.suo
+packages/**
+*.user
 node_modules/
-bower_components/
-vendors/
 build/
 bin/
-dist/
-gulp-cache/
+**/.DS_Store
