@@ -1,1 +1,8 @@
-
+{
+    "formatter": "json",
+    "configuration": {
+        
+    },
+    "rulesDirectory": "customRules/",
+    "formattersDirectory": "customFormatters/"
+}
