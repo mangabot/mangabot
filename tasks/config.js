@@ -1,30 +1,42 @@
 module.exports = function (environment) {
     var env = environment || 'dev',
-        rootPath = isProd(env) ? '' : '../';
-
-    function isProd(env) {
-        return env === 'prod' || env === 'PROD';
-    }
+        paths = {
+            build: 'build',
+            release: 'bin'
+        };
 
     return {
-        env: env || 'dev',
+        env: env,
+
         isDev: env === 'dev' || env === 'DEV',
         isBeta: env === 'beta' || env === 'BETA',
         isProd: isProd(env),
+
+        paths: paths,
+
         app: {
             ts: {
                 inputs: ['./src/app/**/*.ts'],
-                output: 'src/app'
+                output: 'app'
             },
             sass: {
                 inputs: ['./src/app/**/*.scss'],
-                output: 'src/app'
+                output: 'app'
             },
             bundle: {
                 input: 'app',
                 output: 'main.js'
+            },
+            index: {
+                input: 'src/index.html',
+                output: 'index.html'
+            },
+            assets: {
+                inputs: ['src/assets/**'],
+                output: 'assets'
             }
         },
+
         vendors: {
             js: {
                 inputs: [
@@ -36,9 +48,11 @@ module.exports = function (environment) {
                 output: 'externals.js'
             }
         },
+
         systemjs: {
+            baseURL: '',
             map: {
-                'app': isProd(env) ? 'build/src/app' : 'src/app', // 'dist',
+                'app': isProd(env) ? 'build/app' : 'app',
                 '@angular': (isProd(env) ? '' : '../') + 'node_modules/@angular',
                 'rxjs': (isProd(env) ? '' : '../') + 'node_modules/rxjs',
                 'angular2-in-memory-web-api': (isProd(env) ? '' : '../') + 'node_modules/angular2-in-memory-web-api'
@@ -60,4 +74,8 @@ module.exports = function (environment) {
             }
         }
     };
+
+    function isProd(env) {
+        return env === 'prod' || env === 'PROD';
+    }
 };

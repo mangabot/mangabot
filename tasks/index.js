@@ -6,31 +6,30 @@ var template = require('gulp-template');
 
 module.exports = (options) => {
 
-    gulp.task('index.deploy', () => {
-        return gulp.src('src/index.html')
-            .pipe(inject(gulp.src([
-                options.dest + '/' + options.config.vendors.js.output,
-                options.dest + '/**/*.js',
-                '!' + options.dest + '/src/**/*.js',
-                options.dest + '/**/*.css'
-            ], { read: false }), { ignorePath: '../' + options.dest, relative: true }))
-            .pipe(gulp.dest(options.dest))
-            .pipe(template({ isProd: true }))
-            .pipe(gulp.dest(options.dest));
-    });
-
     gulp.task('index.build', () => {
-        return gulp.src('src/index.html')
+        return gulp.src(options.config.app.index.input)
             .pipe(inject(gulp.src([
-                options.dest + '/' + options.config.vendors.js.output,
-                options.dest + '/**/*.css'
-            ], { read: false }), { ignorePath: '../' + options.dest, relative: true }))
-            .pipe(gulp.dest(options.dest))
+                options.config.paths.build + '/' + options.config.vendors.js.output,
+                options.config.paths.build + '/**/*.css'
+            ], { read: false }), { ignorePath: '../' + options.config.paths.build, relative: true }))
+            .pipe(gulp.dest(options.config.paths.build))
             .pipe(template({
                 isProd: options.config.isProd,
                 map: options.config.systemjs.map,
                 packages: options.config.systemjs.packages
             }))
-            .pipe(gulp.dest(options.dest));
+            .pipe(gulp.dest(options.config.paths.build));
+    });
+
+    gulp.task('index.release', () => {
+        return gulp.src(options.config.app.index.input)
+            .pipe(inject(gulp.src([
+                options.config.paths.build + '/' + options.config.vendors.js.output,
+                options.config.paths.build + '/*.js',
+                options.config.paths.build + '/**/*.css'
+            ], { read: false }), { ignorePath: '../' + options.config.paths.build, relative: true }))
+            .pipe(gulp.dest(options.config.paths.release))
+            .pipe(template({ isProd: true }))
+            .pipe(gulp.dest(options.config.paths.release));
     });
 };
