@@ -7,8 +7,10 @@ module.exports = function (options) {
 
     gulp.task('serve', function () {
         browserSync.init({
+            port: 3000,
             server: {
-                baseDir: "."
+                baseDir: ".",
+                middleware: [require('connect-history-api-fallback')()]
             }
         });
     });
