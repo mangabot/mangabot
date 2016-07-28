@@ -9,9 +9,9 @@ module.exports = function (options) {
         browserSync.init({
             port: 3000,
             server: {
-                baseDir: ".",
-                middleware: [require('connect-history-api-fallback')()]
-            }
+                baseDir: ""
+            },
+            startPath: "/build"
         });
     });
 

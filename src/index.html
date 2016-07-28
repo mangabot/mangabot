@@ -16,6 +16,19 @@
 
     <!-- inject:js -->
     <!-- endinject -->
+    <script>
+        <% if (isProd === false) { %>
+            System.config({ 
+                map: { <% _.forEach(map, function(v, k) { %> 
+                    '<%= k %>': '<%= v %>',<% }); %> 
+                }, 
+                packages: { <% _.forEach(packages, function(v, k) { %> 
+                    '<%= k %>': { <% _.forEach(v, function(v1, k1) { %> '${k1}': '${v1}', <%}); %> }, <% }); %> 
+                }
+            });
+        <% } %>
+        System.import('app').then(null, console.error.bind(console));
+    </script>
 </body>
 
 </html>

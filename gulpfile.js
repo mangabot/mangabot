@@ -1,33 +1,42 @@
 'use strict';
 var gulp = require('gulp');
+var argv = require('yargs').argv;
+var config = require('./tasks/config.js')(argv.env);
 var plugins = require('gulp-load-plugins')({ lazy: true });
 var runSequence = require('run-sequence').use(gulp);
 var del = require('del');
-var systemJsBuilder = require('systemjs-builder');
-var sass = require('./tasks/sass.js')({ dest: 'build' });
-var ts = require('./tasks/typescript.js')({ dest: 'build' });
-var index = require('./tasks/index.js')({ dest: 'build' });
-var browserSync = require('./tasks/browser-sync.js')({ dest: 'build' });
-var assets = require('./tasks/assets.js')({ dest: 'build' });
+var concat = require('gulp-concat');
+
+require('./tasks/sass.js')({ dest: 'build', config: config });
+require('./tasks/transpile.js')({ dest: 'build', config: config });
+require('./tasks/index.js')({ dest: 'build', config: config });
+require('./tasks/browser-sync.js')({ dest: 'build', config: config });
+require('./tasks/systemjs.js')({ dest: 'build', config: config });
 
 gulp.task('clean', () => {
     return del(['build', 'bin']);
 });
 
+gulp.task('clean-after-deploy', () => {
+    return del('build/src');
+});
+
 gulp.task('scripts', (cb) => {
-    runSequence('tslint', 'typescript', cb);
+    runSequence(['lint', 'transpile'], cb);
+});
+
+gulp.task('vendors', () => {
+    return gulp.src(config.vendors.js.inputs)
+        .pipe(concat(config.vendors.js.output))
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('build', (cb) => {
-    runSequence('clean', ['sass'], 'scripts', 'systemjs-builder', 'index', cb);
+    runSequence('clean', ['sass', 'vendors', 'scripts'], 'module-loader', 'index.build', cb);
 });
 
-gulp.task('systemjs-builder', () => {
-    var builder = new systemJsBuilder('', 'systemjs.config.js');
-    return builder.buildStatic('app', 'build/app.js')
-        .catch(function (err) {
-            console.error('>>> [systemjs-builder] Bundling failed'.bold.green, err);
-        });
+gulp.task('deploy', (cb) => {
+    runSequence('clean', ['sass', 'vendors', 'scripts'], 'module-loader', 'index.deploy', 'clean-after-deploy', cb);
 });
 
 gulp.task('watch', () => {

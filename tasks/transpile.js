@@ -2,20 +2,22 @@
 
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
+var tslint = require('gulp-tslint');
 var sourcemaps = require('gulp-sourcemaps');
-var tslint = require("gulp-tslint");
 
 module.exports = function (options) {
 
-    gulp.task('typescript', () => {
+    gulp.task('transpile', () => {
         var tsProject = ts.createProject('tsconfig.json');
-        return tsProject.src('./src/app/**/*.ts')
+        return tsProject.src(options.config.app.ts.inputs)
+            .pipe(sourcemaps.init({identityMap:true}))
             .pipe(ts(tsProject)).js
-            .pipe(gulp.dest(options.dest));
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest(options.dest + '/' + options.config.app.ts.output));
     });
 
-    gulp.task("tslint", () => {
-        return gulp.src('./src/app/**/*.ts')
+    gulp.task("lint", () => {
+        return gulp.src(options.config.app.ts.inputs)
             .pipe(tslint({
                 formatter: "verbose",
                 configuration: {

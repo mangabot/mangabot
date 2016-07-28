@@ -12,16 +12,8 @@
     <!-- inject:js -->
     <!-- endinject -->
     <script>
-        System.config({
-        packages: {
-            app: {
-                format: 'register',
-                defaultExtension: 'js'
-            }
-        }
-      });
-      System.import('app/components/app')
-            .then(null, console.error.bind(console));
+      System.config({ map: map, packages: packages });
+      System.import('app').then(null, console.error.bind(console));
     </script>
 </head>
 
