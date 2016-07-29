@@ -54,7 +54,7 @@ gulp.task('deploy', (cb) => {
 
 gulp.task('watch', () => {
     gulp.watch('src/**/*.ts', ['scripts']);
-    gulp.watch('src/**/*.scss', ['styles']);
+    gulp.watch('src/**/*.scss', ['styles.build']);
     gulp.watch('src/**/*.html', ['templates']);
 });
 

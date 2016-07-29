@@ -1,7 +1,5 @@
 'use strict';
 
-var util = require('gulp-util');
-
 module.exports = function () {
     var paths = {
         build: 'build',
@@ -9,9 +7,7 @@ module.exports = function () {
     };
 
     return {
-        isProd: function () {
-            return isProd(getEvn());
-        },
+        isProd: isProd,
 
         paths: paths,
 
@@ -91,7 +87,6 @@ module.exports = function () {
 
     function isProd() {
         var env = getEvn();
-        util.log(env);
         return env === 'prod' || env === 'PROD';
     }
 };
