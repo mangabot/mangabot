@@ -52,7 +52,7 @@ gulp.task('deploy', (cb) => {
     runSequence('clean', ['assets.release', 'styles.release', 'vendors.release', 'scripts'], 'bundle.release', 'index.release', cb);
 });
 
-gulp.task('watch', () => {
+gulp.task('watch', ['build'], () => {
     gulp.watch('src/**/*.ts', ['scripts']);
     gulp.watch('src/**/*.scss', ['styles.build']);
     gulp.watch('src/**/*.html', ['templates']);
