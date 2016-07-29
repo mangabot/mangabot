@@ -16,15 +16,6 @@ module.exports = function (options) {
             .pipe(gulp.dest(options.config.paths.build + '/' + options.config.app.ts.output));
     });
 
-    gulp.task('transpile.release', () => {
-        var tsProject = ts.createProject('tsconfig.json');
-        return tsProject.src(options.config.app.ts.inputs)
-            .pipe(sourcemaps.init())
-            .pipe(ts(tsProject)).js
-            .pipe(sourcemaps.write())
-            .pipe(gulp.dest(options.config.paths.release + '/' + options.config.app.ts.output));
-    });
-
     gulp.task("lint", () => {
         return gulp.src(options.config.app.ts.inputs)
             .pipe(tslint({

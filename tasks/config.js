@@ -1,16 +1,17 @@
-module.exports = function (environment) {
-    var env = environment || 'dev',
-        paths = {
-            build: 'build',
-            release: 'bin'
-        };
+'use strict';
+
+var util = require('gulp-util');
+
+module.exports = function () {
+    var paths = {
+        build: 'build',
+        release: 'bin'
+    };
 
     return {
-        env: env,
-
-        isDev: env === 'dev' || env === 'DEV',
-        isBeta: env === 'beta' || env === 'BETA',
-        isProd: isProd(env),
+        isProd: function () {
+            return isProd(getEvn());
+        },
 
         paths: paths,
 
@@ -21,17 +22,18 @@ module.exports = function (environment) {
             },
             sass: {
                 inputs: ['./src/app/**/*.scss'],
-                output: 'app'
+                output: 'styles.css'
             },
             bundle: {
                 input: 'app',
-                output: 'main.js'
+                output: 'app.js'
             },
             index: {
                 input: 'src/index.html',
                 output: 'index.html'
             },
             assets: {
+                cwd: 'src/assets',
                 inputs: ['src/assets/**'],
                 output: 'assets'
             }
@@ -52,10 +54,18 @@ module.exports = function (environment) {
         systemjs: {
             baseURL: '',
             map: {
-                'app': isProd(env) ? 'build/app' : 'app',
-                '@angular': (isProd(env) ? '' : '../') + 'node_modules/@angular',
-                'rxjs': (isProd(env) ? '' : '../') + 'node_modules/rxjs',
-                'angular2-in-memory-web-api': (isProd(env) ? '' : '../') + 'node_modules/angular2-in-memory-web-api'
+                build: {
+                    'app': 'app',
+                    '@angular': '../node_modules/@angular',
+                    'rxjs': '../node_modules/rxjs',
+                    'angular2-in-memory-web-api': '../node_modules/angular2-in-memory-web-api'
+                },
+                release: {
+                    'app': 'build/app',
+                    '@angular': 'node_modules/@angular',
+                    'rxjs': 'node_modules/rxjs',
+                    'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api'
+                }
             },
             packages: {
                 'app': { main: 'main.js', defaultExtension: 'js' },
@@ -75,7 +85,13 @@ module.exports = function (environment) {
         }
     };
 
-    function isProd(env) {
+    function getEvn() {
+        return require('yargs').argv.env || 'dev';
+    }
+
+    function isProd() {
+        var env = getEvn();
+        util.log(env);
         return env === 'prod' || env === 'PROD';
     }
 };
