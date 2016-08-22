@@ -10,7 +10,9 @@ module.exports = (options) => {
         return gulp.src(options.config.app.index.input)
             .pipe(inject(gulp.src([
                 options.config.paths.build + '/' + options.config.vendors.js.output,
-                options.config.paths.build + '/**/*.css'
+                options.config.paths.build + '/*.js',
+                options.config.paths.build + '/**/*.css',
+                '!' + options.config.paths.build + '/assets/**/*.css'
             ], { read: false }), { ignorePath: '../' + options.config.paths.build, relative: true }))
             .pipe(gulp.dest(options.config.paths.build))
             .pipe(template({
@@ -25,7 +27,7 @@ module.exports = (options) => {
         return gulp.src(options.config.app.index.input)
             .pipe(inject(gulp.src([
                 options.config.paths.release + '/' + options.config.vendors.js.output,
-                options.config.paths.release + '/**/*.js',
+                options.config.paths.release + '/*.js',
                 options.config.paths.release + '/**/*.css',
                 '!' + options.config.paths.release + '/assets/**'
             ], { read: false }), { ignorePath: '../' + options.config.paths.release, relative: true }))

@@ -14,24 +14,11 @@ require('./tasks/index.js')({ dest: config.dest, config: config });
 require('./tasks/browser-sync.js')({ dest: config.dest, config: config });
 require('./tasks/bundle.js')({ dest: config.dest, config: config });
 require('./tasks/assets.js')({ dest: config.dest, config: config });
+require('./tasks/vendors.js')({ dest: config.dest, config: config });
+require('./tasks/scripts.js')({ dest: config.dest, config: config });
 
 gulp.task('clean', () => {
     return del(['build', 'bin']);
-});
-
-gulp.task('scripts', (cb) => {
-    runSequence(['lint', 'transpile.build'], cb);
-});
-
-gulp.task('vendors.build', () => {
-    return gulp.src(config.vendors.js.inputs)
-        .pipe(concat(config.vendors.js.output))
-        .pipe(gulp.dest(config.paths.build));
-});
-
-gulp.task('vendors.release', ['vendors.build'], () => {
-    return gulp.src(config.paths.build + '/' + config.vendors.js.output)
-        .pipe(gulp.dest(config.paths.release));
 });
 
 gulp.task('build', (cb) => {
@@ -40,7 +27,7 @@ gulp.task('build', (cb) => {
         plugins.util.log('No [env] command paramter, default is dev');
     }
     plugins.util.log('Environment: ' + argv.env);
-    runSequence('clean', ['assets.build', 'styles.build', 'vendors.build', 'scripts'], 'index.build', cb);
+    runSequence('clean', ['assets.build', 'styles.build', 'vendors.build', 'scripts.build'], 'index.build', cb);
 });
 
 gulp.task('deploy', (cb) => {
@@ -49,7 +36,7 @@ gulp.task('deploy', (cb) => {
         plugins.util.log('No [env] command paramter, default is prod');
     }
     plugins.util.log('Environment: ' + argv.env);
-    runSequence('clean', ['assets.release', 'styles.release', 'vendors.release', 'scripts'], 'bundle.release', 'index.release', cb);
+    runSequence('clean', ['assets.release', 'styles.release', 'vendors.release', 'scripts.release'], 'index.release', cb);
 });
 
 gulp.task('watch', ['build'], () => {

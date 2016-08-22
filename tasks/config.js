@@ -13,11 +13,15 @@ module.exports = function () {
 
         app: {
             ts: {
-                inputs: ['./src/app/**/*.ts'],
-                output: 'app'
+                inputs: ['src/app/**/*.ts'],
+                output: 'app'   // only use for build
             },
-            sass: {
-                inputs: ['./src/app/**/*.scss'],
+            js: {
+                inputs: ['src/app/**/*.js'],
+                output: 'app.js'    // all app js will be concatenating together
+            },
+            css: {
+                inputs: ['src/app/**/*.scss'],  // support css, sass
                 output: 'styles.css'
             },
             bundle: {
@@ -30,7 +34,7 @@ module.exports = function () {
             },
             assets: {
                 cwd: 'src/assets',
-                inputs: ['src/assets/**'],
+                inputs: ['src/assets/**', '!**/*.css'],
                 output: 'assets'
             }
         },
@@ -38,12 +42,15 @@ module.exports = function () {
         vendors: {
             js: {
                 inputs: [
-                    './node_modules/core-js/client/shim.min.js',
-                    './node_modules/zone.js/dist/zone.min.js',
-                    './node_modules/reflect-metadata/Reflect.min.js',
-                    './node_modules/systemjs/dist/system.js'
+                    'node_modules/core-js/client/shim.min.js',
+                    'node_modules/zone.js/dist/zone.min.js',
+                    'node_modules/reflect-metadata/Reflect.min.js',
+                    'node_modules/systemjs/dist/system.js'
                 ],
-                output: 'externals.js'
+                output: 'vendors.js'
+            },
+            css: {
+                inputs: ['src/assets/themes/**/*.css']
             }
         },
 
