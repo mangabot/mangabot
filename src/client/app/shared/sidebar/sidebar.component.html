@@ -1,0 +1,35 @@
+<section>
+    <div class="header">
+        <h2>Manga Bot</h2>
+        <h4 class="version">v3.0.0</h4>
+        <span class="last-updated-date">(2016-09-30)</span>
+    </div>
+
+    <ul class="manga-sites">
+        <li class="title">SITE (4)</li>
+        
+        <li *ngFor="let site of sites">
+            <img [src]="site.logoUrl">
+            <span class="name">#{{site.name}}</span>
+        </li>
+    </ul>
+
+    <ul class="tools">
+        <li>
+            <img src="">
+            <a [routerLink]="['/grabber']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="name">Grabber</a>
+        </li>
+        <li>
+            <img src="">
+            <a [routerLink]="['/converter']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="name">Converter</a>
+        </li>
+        <li>
+            <img src="">
+            <span class="name">Renamer</span>
+        </li>
+        <li>
+            <img src="">
+            <span class="name">Settings</span>
+        </li>
+    </ul>
+</section>
