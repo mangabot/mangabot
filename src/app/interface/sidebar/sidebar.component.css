@@ -1,19 +1,72 @@
 :host {
-    
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    border-right: 1px solid #e0e0e0;
+    background-color: #303E4D;
+    color: #FFFFFF;
+}
+
+.header {}
+
+.header h2 {
+    margin: 10px 15px 5px;
+}
+
+.header h4 {
+    margin: 0 15px;
+    opacity: 0.6;
+}
+
+ul.manga-sites {
+    margin: 25px 0 15px;
+    position: absolute;
+    top: 60px;
+    bottom: 135px;
+    width: 100%;
+}
+
+ul.manga-sites > li {
+    padding: 5px 15px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+ul.manga-sites > li > * {
+    vertical-align: middle;
+}
+
+ul.manga-sites > li.title:hover {
+    opacity: 1;
+}
+
+ul.manga-sites > li:not(.title):hover {
+    background-color: #4A5664;
 }
 
 ul.tools {
-
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
 }
 
 ul.tools > li {
+    padding: 5px 15px;
+    opacity: 0.6;
+}
 
+ul.tools > li:hover {
+    opacity: 1;
+}
+
+ul.tools > li > * {
+    vertical-align: middle;
 }
 
 ul.tools > li > img {
     width: 32px;
 }
 
-ul.tools > li > .name {
-
-}
+ul.tools > li > .name {}

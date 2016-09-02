@@ -1,10 +1,10 @@
-import { AngularCliWebpackPage } from './app.po';
+import { MangaBotPage } from './app.po';
 
-describe('angular-cli-webpack App', function() {
-  let page: AngularCliWebpackPage;
+describe('mangabot App', function() {
+  let page: MangaBotPage;
 
   beforeEach(() => {
-    page = new AngularCliWebpackPage();
+    page = new MangaBotPage();
   });
 
   it('should display message saying app works', () => {

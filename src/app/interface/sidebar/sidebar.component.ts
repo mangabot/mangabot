@@ -1,32 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { SiteOption } from './site.option';
+import { MangaSite, SiteEnum } from '../../domain';
 
 @Component({
-  selector: 'mb-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+	selector: 'mb-sidebar',
+	templateUrl: './sidebar.component.html',
+	styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  private sites: SiteOption[] = [
-        {
-            name: 'Blog Truyen',
-            domain: 'blogtruyen.com',
-            logoUrl: '',
-            mangaListUrl: 'http://blogtruyen.com/danhsach/tatca'
-        } as SiteOption,
+	sites: MangaSite[] = [
+		new MangaSite(SiteEnum.BLOGTRUYEN, 'Blog Truyen', 'http://blogtruyen.com', 'http://blogtruyen.com/ajax/Search/AjaxLoadListManga?key=tatca&orderBy=1&p='),
+		new MangaSite(SiteEnum.KISSMANGA, 'Kiss Manga', 'http://kissmanga.com', 'http://kissmanga.com/MangaList?page=')
+	];
 
-        {
-            name: 'Vechai',
-            logoUrl: '',
-            mangaListUrl: ''
-        } as SiteOption
-    ];
+	constructor() {
 
-  constructor() {
+	}
 
-  }
+	ngOnInit() {
 
-  ngOnInit() {
-  }
+	}
 
 }

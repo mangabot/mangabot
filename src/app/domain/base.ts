@@ -1,9 +1,9 @@
-import { Site } from './site.enum';
+import { SiteEnum } from './site.enum';
 
 export interface Base {
     id: string;
     name: string;
-    site: Site;
+    site: SiteEnum;
     url: string;
     parent?: Base;
     children?: Array<Base>;

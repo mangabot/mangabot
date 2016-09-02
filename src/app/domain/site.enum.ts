@@ -1,4 +1,4 @@
-export const enum Site {
+export enum SiteEnum {
     UNKNOWN,
 
     BLOGTRUYEN,

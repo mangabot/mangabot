@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor/globals';
 
-export class AngularCliWebpackPage {
+export class MangaBotPage {
   navigateTo() {
     return browser.get('/');
   }
