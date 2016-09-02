@@ -1,21 +1,14 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// import { interfaceRoutes } from './interface/interface.routes';
-import { MangaComponent } from './interface/manga/manga.component';
-import { GrabberComponent } from './interface/grabber/grabber.component';
-import { ConverterComponent } from './interface/converter/converter.component';
+import { InterfaceRoutes } from './interface/interface.routes';
 
-const appRoutes: Routes = [
-    { path: '', component: MangaComponent },
-    { path: 'manga', component: MangaComponent },
-    { path: 'manga/:site', component: MangaComponent },
-    { path: 'grabber', component: GrabberComponent },
-    { path: 'converter', component: ConverterComponent }
+export const AppRoutes: Routes = [
+    ...InterfaceRoutes
 ];
 
-export const appRoutingProviders: any[] = [
+export const AppRoutingProviders: any[] = [
 
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const AppRouting: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

@@ -27,15 +27,11 @@ import { RouterModule } from '@angular/router';
 // import { MdTooltipModule } from    "@angular2-material/tooltip";
 
 import { AppComponent } from './app.component';
-import { routing, appRoutingProviders } from './app.routes';
+import { AppRouting } from './app.routes';
 import './application';
 import './shared';
 import './domain';
-import {GrabberComponent} from './interface/grabber';
-import {SidebarComponent} from './interface/sidebar';
-import {TaskListComponent} from './interface/task-list';
-import {MangaComponent} from './interface/manga';
-import {ConverterComponent} from './interface/converter';
+import { InterfaceModule } from './interface/interface.module';
 
 
 @NgModule({
@@ -44,18 +40,14 @@ import {ConverterComponent} from './interface/converter';
     FormsModule,
     HttpModule,
     CommonModule,
-    routing,
-    GrabberComponent,
-    SidebarComponent,
-    TaskListComponent,
-    MangaComponent,
-    ConverterComponent
+    InterfaceModule,
+    AppRouting
   ],
   declarations: [
     AppComponent
   ],
   providers: [
-    appRoutingProviders
+
   ],
   bootstrap: [AppComponent]
 })
