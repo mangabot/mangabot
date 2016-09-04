@@ -1,10 +1,8 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { InterfaceRoutes } from './interface/interface.routes';
-
 export const AppRoutes: Routes = [
-    ...InterfaceRoutes
+    { path: '', redirectTo: '/manga', pathMatch: 'full' }
 ];
 
 export const AppRoutingProviders: any[] = [

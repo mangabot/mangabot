@@ -3,13 +3,11 @@ import { SiteEnum } from './site.enum';
 export class MangaSite {
 
     constructor(
-        protected site: SiteEnum,
-        protected name: string,
-        protected domain: string,
-        protected mangaListUrl: string,
-        protected logoUrl?: string) {
-
-        console.log(this.site + '-' + name);
+        public site: SiteEnum,
+        public name: string,
+        public domain: string,
+        public mangaListUrl: string,
+        public logoUrl?: string) {
     }
 
     match(url: string): boolean {

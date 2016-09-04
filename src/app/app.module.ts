@@ -33,7 +33,6 @@ import './shared';
 import './domain';
 import { InterfaceModule } from './interface/interface.module';
 
-
 @NgModule({
   imports: [
     BrowserModule,
