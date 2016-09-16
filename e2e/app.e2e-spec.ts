@@ -1,10 +1,10 @@
-import { MangaBotPage } from './app.po';
+import { MangabotPage } from './app.po';
 
 describe('mangabot App', function() {
-  let page: MangaBotPage;
+  let page: MangabotPage;
 
   beforeEach(() => {
-    page = new MangaBotPage();
+    page = new MangabotPage();
   });
 
   it('should display message saying app works', () => {

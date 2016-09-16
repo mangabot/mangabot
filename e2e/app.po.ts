@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor/globals';
 
-export class MangaBotPage {
+export class MangabotPage {
   navigateTo() {
     return browser.get('/');
   }
