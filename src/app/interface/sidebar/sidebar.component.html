@@ -7,14 +7,14 @@
 
 <div class="manga-sites-wrapper">
     <ul class="manga-sites">
-        <li [routerLink]="['/manga']" class="title">Vietnamese ({{vnSites.length}})</li>
-        <li *ngFor="let ms of vnSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" [routerLinkActive]="['active']">
+        <li routerLink="/manga" class="title">Vietnamese ({{vnSites.length}})</li>
+        <li *ngFor="let ms of vnSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active">
             <img [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
             <span class="name">{{ms.name}}</span>
         </li>
 
-        <li [routerLink]="['/manga']" class="title">English ({{enSites.length}})</li>
-        <li *ngFor="let ms of enSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" [routerLinkActive]="['active']">
+        <li routerLink="/manga" class="title">English ({{enSites.length}})</li>
+        <li *ngFor="let ms of enSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active">
             <img [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
             <span class="name">{{ms.name}}</span>
         </li>
@@ -24,11 +24,11 @@
 <ul class="tools">
     <li>
         <img src="assets/icon/link.svg">
-        <a [routerLink]="['/grabber']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="name">Grabber</a>
+        <a routerLink="/grabber" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" class="name">Grabber</a>
     </li>
     <li>
         <img src="assets/icon/link.svg">
-        <a [routerLink]="['/converter']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="name">Converter</a>
+        <a routerLink="/converter" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" class="name">Converter</a>
     </li>
     <li>
         <img src="assets/icon/link.svg">

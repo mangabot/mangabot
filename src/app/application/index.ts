@@ -1,2 +1,3 @@
-export * from './guid.helper';
-export * from './site.helper';
+export * from './helpers/guid.helper';
+export * from './helpers/site.helper';
+export * from './services/manga-site.service';

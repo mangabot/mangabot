@@ -27,27 +27,27 @@ import { RouterModule } from '@angular/router';
 // import { MdTooltipModule } from    "@angular2-material/tooltip";
 
 import { AppComponent } from './app.component';
-import { AppRouting } from './app.routes';
+import { AppRouting, AppRoutingProviders } from './app.routes';
 import './application';
 import './shared';
 import './domain';
 import { InterfaceModule } from './interface/interface.module';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    CommonModule,
-    InterfaceModule,
-    AppRouting
-  ],
-  declarations: [
-    AppComponent
-  ],
-  providers: [
-
-  ],
-  bootstrap: [AppComponent]
+	imports: [
+		BrowserModule,
+		FormsModule,
+		HttpModule,
+		CommonModule,
+		InterfaceModule,
+		AppRouting
+	],
+	declarations: [
+		AppComponent
+	],
+	providers: [
+		AppRoutingProviders
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

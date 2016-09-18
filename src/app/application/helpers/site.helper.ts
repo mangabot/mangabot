@@ -1,4 +1,4 @@
-import { SiteEnum } from '../domain';
+import { SiteEnum } from '../../domain';
 
 export class SiteHelper {
 

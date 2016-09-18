@@ -1,8 +1,9 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-export const AppRoutes: Routes = [
-    { path: '', redirectTo: '/manga', pathMatch: 'full' }
+const AppRoutes: Routes = [
+    { path: '', redirectTo: '/manga', pathMatch: 'full' },
+    { path: '**', redirectTo: '/manga' }
 ];
 
 export const AppRoutingProviders: any[] = [
