@@ -6,7 +6,7 @@ import { MangaSiteService } from '../../application';
 @Component({
 	selector: 'mb-sidebar',
 	templateUrl: './sidebar.component.html',
-	styleUrls: ['./sidebar.component.css']
+	styleUrls: ['./sidebar.component.less']
 })
 export class SidebarComponent implements OnInit, OnDestroy {
 	siteEnumHelper = SiteEnumHelper;

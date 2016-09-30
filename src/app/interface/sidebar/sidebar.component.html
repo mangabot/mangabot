@@ -1,41 +1,100 @@
-<div class="header">
-    <h2>Manga Bot</h2>
-    <h4 class="version">
-        v3.0.0 <span class="last-updated-date">(2016-09-30)</span>
+<section class="banner ui fluid container">
+    <h2 class="ui header">
+        <!--<img [src]="'assets/logo/blogtruyen.png'">-->
+        <div class="content">Manga Bot</div>
+    </h2>
+
+    <div class="collapsed-menu pull-right">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</section>
+
+<section class="notifications ui fluid container">
+    <i class="close icon"></i>
+
+    <h4 class="ui header">
+        <i class="browser icon"></i>
+        <div class="content">Notifications</div>
     </h4>
-</div>
 
-<div class="manga-sites-wrapper">
-    <ul class="manga-sites">
-        <li routerLink="/manga" class="title">Vietnamese ({{vnSites.length}})</li>
-        <li *ngFor="let ms of vnSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active">
-            <img [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
-            <span class="name">{{ms.name}}</span>
+    <ul class="messages">
+        <li>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </li>
-
-        <li routerLink="/manga" class="title">English ({{enSites.length}})</li>
-        <li *ngFor="let ms of enSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active">
-            <img [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
-            <span class="name">{{ms.name}}</span>
+        <li>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </li>
     </ul>
-</div>
 
-<ul class="tools">
-    <li>
-        <img src="assets/icon/link.svg">
-        <a routerLink="/grabber" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" class="name">Grabber</a>
-    </li>
-    <li>
-        <img src="assets/icon/link.svg">
-        <a routerLink="/converter" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" class="name">Converter</a>
-    </li>
-    <li>
-        <img src="assets/icon/link.svg">
-        <span class="name">Renamer</span>
-    </li>
-    <li>
-        <img src="assets/icon/link.svg">
-        <span class="name">Settings</span>
-    </li>
-</ul>
+    <div class="ui dot pagination">
+        <a class="item active"></a>
+        <a class="item"></a>
+        <a class="item"></a>
+    </div>
+</section>
+
+<section class="category ui fluid container">
+    <h4 class="ui header">
+        <i class="folder open outline icon"></i>
+        <div class="content">Category</div>
+    </h4>
+
+    <div class="ui list">
+
+        <div class="ui horizontal divider"> Vietnamese </div>
+
+        <div *ngFor="let ms of vnSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active"
+            class="item">
+            <img class="ui avatar image" [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
+            <div class="content">
+                <a class="header">{{ms.name}}</a>
+                <div class="description">http://kissmanga.me</div>
+            </div>
+        </div>
+
+        <div class="ui horizontal divider"> English </div>
+
+        <div *ngFor="let ms of enSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active"
+            class="item">
+            <img class="ui avatar image" [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
+            <div class="content">
+                <a class="header">{{ms.name}}</a>
+                <div class="description">http://kissmanga.me</div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="tools ui fluid container">
+
+    <div class="ui large list">
+        <div class="item">
+            <i class="crosshairs icon"></i>
+            <div class="content">
+                <a class="header">Grabber</a>
+                <div class="description"></div>
+            </div>
+        </div>
+
+        <div class="item">
+            <i class="wizard icon"></i>
+            <div class="content">
+                <a class="header">Converter</a>
+                <div class="description"></div>
+            </div>
+        </div>
+
+        <div class="item">
+            <i class="setting icon"></i>
+            <div class="content">
+                <a class="header">Settings</a>
+                <div class="description"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
