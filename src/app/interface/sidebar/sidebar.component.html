@@ -1,6 +1,6 @@
 <section class="banner ui fluid container">
     <h2 class="ui header">
-        <!--<img [src]="'assets/logo/blogtruyen.png'">-->
+        <img [src]="'assets/logo/brand.png'" class="ui mini image">
         <div class="content">Manga Bot</div>
     </h2>
 
@@ -14,38 +14,38 @@
 <section class="notifications ui fluid container">
     <i class="close icon"></i>
 
-    <h4 class="ui header">
+    <h3 class="ui header">
         <i class="browser icon"></i>
         <div class="content">Notifications</div>
-    </h4>
+    </h3>
 
-    <ul class="messages">
-        <li>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        </li>
-        <li>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        </li>
-    </ul>
+    <div class="ui middle aligned divided list">
+        <div class="item">
+            <div class="content">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </div>
+        </div>
+    </div>
 
-    <div class="ui dot pagination">
-        <a class="item active"></a>
+    <div class="ui dot pagination horizontal list">
+        <a class="item"></a>
         <a class="item"></a>
         <a class="item"></a>
     </div>
+
 </section>
 
-<section class="category ui fluid container">
-    <h4 class="ui header">
+<section class="categories ui fluid container">
+    <h3 class="ui header">
         <i class="folder open outline icon"></i>
         <div class="content">Category</div>
-    </h4>
+    </h3>
 
     <div class="ui list">
 
         <div class="ui horizontal divider"> Vietnamese </div>
 
-        <div *ngFor="let ms of vnSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active"
+        <div *ngFor="let ms of vnSites" [routerLink]="['/sites', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active"
             class="item">
             <img class="ui avatar image" [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
             <div class="content">
@@ -56,7 +56,7 @@
 
         <div class="ui horizontal divider"> English </div>
 
-        <div *ngFor="let ms of enSites" [routerLink]="['/manga', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active"
+        <div *ngFor="let ms of enSites" [routerLink]="['/sites', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active"
             class="item">
             <img class="ui avatar image" [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
             <div class="content">

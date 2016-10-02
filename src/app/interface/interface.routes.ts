@@ -3,11 +3,28 @@ import { ModuleWithProviders } from '@angular/core';
 
 import { GrabberComponent } from './grabber/grabber.component';
 import { ConverterComponent } from './converter/converter.component';
-import { MangaListComponent, MangaDetailComponent } from './manga';
+import { MangaComponent, MangaListComponent, MangaDetailComponent } from './manga';
 
 const InterfaceRoutes: Routes = [
-  { path: 'manga', component: MangaListComponent },
-  { path: 'manga/:site', component: MangaDetailComponent },
+  {
+    path: '',
+    redirectTo: '/sites/blogtruyen',
+    pathMatch: 'full'
+  },
+  {
+    path: 'sites/:site',
+    component: MangaComponent,
+    children: [
+      {
+        path: '',
+        component: MangaListComponent,
+        children: [
+          { path: '' },
+          { path: ':manga', component: MangaDetailComponent }
+        ]
+      }
+    ]
+  },
   { path: 'grabber', component: GrabberComponent },
   { path: 'converter', component: ConverterComponent }
 ];

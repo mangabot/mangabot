@@ -1,0 +1,26 @@
+:host {
+    @list-width: 17.5rem;
+    width: 100%;
+    height: 100%;
+    display: block;
+    .manga-list {
+        width: @list-width;
+        .filter-bar {
+            .ui.icon.input {
+                width: 100%;
+            }
+        }
+        .ui.list > .item {
+            > .content {
+                width: ~"calc(@{list-width} - 2.5em)";
+                overflow: hidden;
+                > .description {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+    .manga-detail {}
+}
