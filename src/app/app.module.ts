@@ -5,6 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
 // material 2
 // import { MdButtonModule } from '@angular2-material/button';
 // import { MdButtonToggleModule } from "@angular2-material/button-toggle";
@@ -40,7 +44,8 @@ import { InterfaceModule } from './interface/interface.module';
 		HttpModule,
 		CommonModule,
 		InterfaceModule,
-		AppRouting
+		AppRouting,
+		InMemoryWebApiModule.forRoot(InMemoryDataService)
 	],
 	declarations: [
 		AppComponent
