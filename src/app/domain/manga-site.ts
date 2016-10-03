@@ -1,4 +1,4 @@
-import { SiteEnum } from './site.enum';
+import { SiteEnum } from './';
 
 export class MangaSite {
 

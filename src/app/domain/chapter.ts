@@ -1,7 +1,5 @@
-import {Base} from './base';
-import { SiteEnum } from './site.enum';
-import { Manga } from './manga';
-import { Page } from './page';
+import { Base, Manga, Page, SiteEnum } from './';
+import { Guid } from '../application';
 
 export class Chapter implements Base {
     id: string;
@@ -10,4 +8,8 @@ export class Chapter implements Base {
     url: string;
     parent: Manga;
     children: Array<Page>;
+
+    constructor() {
+        this.id = Guid.newGuid().replace(/-/gi, '');
+    }
 }

@@ -1,17 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Manga, SiteEnum } from '../../../domain';
-import { SiteHelper, JavaHashCodeHelper } from '../../../application';
+import { Manga, SiteEnum } from '../../domain';
+import { SiteHelper } from '../../application';
 
 @Component({
-  selector: 'mb-manga-list',
-  templateUrl: './manga-list.component.html',
-  styleUrls: ['./manga-list.component.less']
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.less']
 })
-export class MangaListComponent {
+export class SearchComponent {
   mangaList: Manga[];
-
-  JavaHashCodeHelper = JavaHashCodeHelper;
 
   constructor() {
     this.mangaList = [

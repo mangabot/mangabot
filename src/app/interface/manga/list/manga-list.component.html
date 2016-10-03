@@ -10,7 +10,7 @@
         <div *ngFor="let manga of mangaList" class="item">
             <img class="ui avatar image" [src]="manga.thumbnail">
             <div class="content">
-                <a class="header">{{ manga.name }}</a>
+                <a [routerLink]="[manga.id]" class="header">{{ manga.name }}</a>
                 <div class="description">{{ manga.url }}</div>
             </div>
         </div>

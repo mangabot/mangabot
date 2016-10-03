@@ -9,9 +9,8 @@ import { GrabberComponent } from './grabber/grabber.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { ConverterComponent } from './converter/converter.component';
-import { MangaComponent } from './manga/manga.component';
-import { MangaDetailComponent } from './manga/detail/manga-detail.component';
-import { MangaListComponent } from './manga/list/manga-list.component';
+import { MangaComponent, MangaListComponent, MangaListHomeComponent, MangaDetailComponent } from './manga';
+import { SearchComponent } from './search';
 import { InterfaceRouting } from './interface.routes';
 
 @NgModule({
@@ -30,7 +29,9 @@ import { InterfaceRouting } from './interface.routes';
         ConverterComponent,
         MangaComponent,
         MangaDetailComponent,
-        MangaListComponent
+        MangaListComponent,
+        MangaListHomeComponent,
+        SearchComponent
     ],
     exports: [
         // MUST export to prevent duplicated components

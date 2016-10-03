@@ -3,7 +3,8 @@ import { ModuleWithProviders } from '@angular/core';
 
 import { GrabberComponent } from './grabber/grabber.component';
 import { ConverterComponent } from './converter/converter.component';
-import { MangaComponent, MangaListComponent, MangaDetailComponent } from './manga';
+import { MangaComponent, MangaListComponent, MangaListHomeComponent, MangaDetailComponent } from './manga';
+import { SearchComponent } from './search';
 
 const InterfaceRoutes: Routes = [
   {
@@ -19,7 +20,7 @@ const InterfaceRoutes: Routes = [
         path: '',
         component: MangaListComponent,
         children: [
-          { path: '' },
+          { path: '', component: MangaListHomeComponent },
           { path: ':manga', component: MangaDetailComponent }
         ]
       }
