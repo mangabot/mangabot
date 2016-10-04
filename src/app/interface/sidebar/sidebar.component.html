@@ -45,23 +45,25 @@
 
         <div class="ui horizontal divider"> Vietnamese </div>
 
-        <div *ngFor="let ms of vnSites" [routerLink]="['/sites', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active"
-            class="item">
-            <img class="ui avatar image" [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
+        <div *ngFor="let ms of vnSites" class="item">
+            <img class="ui avatar image" [src]="'assets/logo/' + ms.logo">
             <div class="content">
-                <a class="header">{{ms.name}}</a>
-                <div class="description">http://kissmanga.me</div>
+                <a [routerLink]="['/sites', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active" class="header">{{ms.name}}</a>
+                <div class="description">
+                    <a href="{{ms.domain}}" target="_blank">{{ms.domain}}</a>
+                </div>
             </div>
         </div>
 
         <div class="ui horizontal divider"> English </div>
 
-        <div *ngFor="let ms of enSites" [routerLink]="['/sites', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active"
-            class="item">
-            <img class="ui avatar image" [src]="'assets/logo/' + siteEnumHelper.getStringValue(ms.site) + '.png'">
+        <div *ngFor="let ms of enSites" class="item">
+            <img class="ui avatar image" [src]="'assets/logo/' + ms.logo">
             <div class="content">
-                <a class="header">{{ms.name}}</a>
-                <div class="description">http://kissmanga.me</div>
+                <a [routerLink]="['/sites', siteEnumHelper.getStringValue(ms.site)]" routerLinkActive="active" class="header">{{ms.name}}</a>
+                <div class="description">
+                    <a href="{{ms.domain}}" target="_blank">{{ms.domain}}</a>
+                </div>
             </div>
         </div>
 

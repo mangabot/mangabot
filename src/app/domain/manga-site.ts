@@ -7,7 +7,7 @@ export class MangaSite {
         public name: string,
         public domain: string,
         public mangaListUrl: string,
-        public logoUrl?: string) {
+        public logo?: string) {
     }
 
     match(url: string): boolean {

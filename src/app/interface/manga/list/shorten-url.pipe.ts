@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ShortenUrlPipe implements PipeTransform {
     transform(value: string): string {
         console.log(value);
-        let newVal:string ?= value;
-        return value;
+        let newVal = value ? value : '';
+        return newVal.replace(/\s*https?:\/\/(www\.)?[^\/]+/gi, '');
     }
 }
