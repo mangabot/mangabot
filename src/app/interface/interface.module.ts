@@ -9,7 +9,7 @@ import { GrabberComponent } from './grabber/grabber.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { ConverterComponent } from './converter/converter.component';
-import { MangaComponent, MangaListComponent, MangaListHomeComponent, MangaDetailComponent } from './manga';
+import { MangaComponent, MangaListComponent, MangaListHomeComponent, MangaDetailComponent, ShortenUrlPipe } from './manga';
 import { SearchComponent } from './search';
 import { InterfaceRouting } from './interface.routes';
 
@@ -31,7 +31,8 @@ import { InterfaceRouting } from './interface.routes';
         MangaDetailComponent,
         MangaListComponent,
         MangaListHomeComponent,
-        SearchComponent
+        SearchComponent,
+        ShortenUrlPipe
     ],
     exports: [
         // MUST export to prevent duplicated components
