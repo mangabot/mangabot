@@ -7,8 +7,13 @@ import { MangaComponent, MangaListComponent, MangaListHomeComponent, MangaDetail
 import { SearchComponent } from './search';
 
 const InterfaceRoutes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: '/sites/blogtruyen',
+  //   pathMatch: 'full'
+  // },
   {
-    path: '',
+    path: 'sites',
     redirectTo: '/sites/blogtruyen',
     pathMatch: 'full'
   },
