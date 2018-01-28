@@ -1,5 +1,5 @@
 {
-  "productName": "angular-electron",
+  "productName": "mangabot",
   "directories": {
     "app": "dist",
     "output": "app-builds"
