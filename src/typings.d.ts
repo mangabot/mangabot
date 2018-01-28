@@ -1,5 +1,11 @@
-// Typings reference file, see links for more information
-// https://github.com/typings/typings
-// https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html
+/* SystemJS module definition */
+declare var nodeModule: NodeModule;
+interface NodeModule {
+  id: string;
+}
 
-declare var System: any;
+declare var window: Window;
+interface Window {
+  process: any;
+  require: any;
+}

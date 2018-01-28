@@ -1,58 +1,55 @@
+import 'zone.js/dist/zone-mix';
+import 'reflect-metadata';
+import 'polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
 
-// Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-// material 2
-// import { MdButtonModule } from '@angular2-material/button';
-// import { MdButtonToggleModule } from "@angular2-material/button-toggle";
-// import { MdCardModule } from   "@angular2-material/card";
-// import { MdCheckboxModule } from    "@angular2-material/checkbox";
-// import { MdCoreModule } from    "@angular2-material/core";
-// import { MdGridListModule } from    "@angular2-material/grid-list";
-// import { MdIconModule } from   "@angular2-material/icon";
-// import { MdInputModule } from    "@angular2-material/input";
-// import { MdListModule } from    "@angular2-material/list";
-// import { MdMenuModule } from    "@angular2-material/menu";
-// import { MdProgressBarModule } from   "@angular2-material/progress-bar";
-// import { MdProgressCircleModule } from    "@angular2-material/progress-circle";
-// import { MdRadioModule } from   "@angular2-material/radio";
-// import { MdSidenavModule } from   "@angular2-material/sidenav";
-// import { MdSlideToggleModule } from   "@angular2-material/slide-toggle";
-// import { MdSliderModule } from   "@angular2-material/slider";
-// import { MdTabsModule } from    "@angular2-material/tabs";
-// import { MdToolbarModule } from   "@angular2-material/toolbar";
-// import { MdTooltipModule } from    "@angular2-material/tooltip";
+import { AppRoutingModule } from './app-routing.module';
+
+// NG Translate
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { ElectronService } from './providers/electron.service';
+
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+
+import { WebviewDirective } from 'app/directives/webview.directive';
 
 import { AppComponent } from './app.component';
-import { AppRouting, AppRoutingProviders } from './app.routes';
-import './application';
-import './shared';
-import './domain';
-import { InterfaceModule } from './interface/interface.module';
+import { HomeComponent } from './components/home/home.component';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
-	imports: [
-		BrowserModule,
-		FormsModule,
-		HttpModule,
-		CommonModule,
-		InterfaceModule,
-		AppRouting,
-		InMemoryWebApiModule.forRoot(InMemoryDataService)
-	],
-	declarations: [
-		AppComponent
-	],
-	providers: [
-		AppRoutingProviders
-	],
-	bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    WebviewDirective
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
+      }
+    }),
+    SharedModule,
+    CoreModule
+  ],
+  providers: [ElectronService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
