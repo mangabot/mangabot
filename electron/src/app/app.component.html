@@ -4,17 +4,23 @@
   <mat-sidenav-content>
     Main content
 
-    <h1 class="title">
+    <!-- <h1 class="title">
       {{ 'PAGES.HOME.TITLE' | translate }}
     </h1>
 
     <button (click)="getPageSource()">Click here</button>
 
     <h1 class="mat-display-1">Jackdaws love my big sphinx of quartz.</h1>
-    <h2 class="mat-h2">The quick brown fox jumps over the lazy dog.</h2>
+    <h2 class="mat-h2">The quick brown fox jumps over the lazy dog.</h2> -->
 
   </mat-sidenav-content>
 </mat-sidenav-container>
 
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened="true">Drawer content</mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>
+
+<mat-slide-toggle>Slide Toggle</mat-slide-toggle>
 
 <router-outlet></router-outlet>

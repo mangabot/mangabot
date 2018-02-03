@@ -8,8 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-
 // NG Translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -24,6 +22,7 @@ import { CoreModule } from './core/core.module';
 
 import { WebviewDirective } from 'app/directives/webview.directive';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 
@@ -43,7 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule,
+    AngularMaterialModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -51,9 +50,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    AngularMaterialModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    AppRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ElectronService],
