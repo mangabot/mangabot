@@ -1,4 +1,95 @@
-<mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened="true">Drawer content</mat-drawer>
-  <mat-drawer-content>Main content</mat-drawer-content>
-</mat-drawer-container>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="true" role="directory">
+    <div class="brand">
+      <h3>Manga Bot</h3>
+      <div>Version 3.0</div>
+      <div>2018-02-10</div>
+    </div>
+
+    <mat-list>
+      <h3 matSubheader>Vietnamese</h3>
+      <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Blogtruyen</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Truyen tranh 8</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Hoc vien truyen tranh</h3>
+      </mat-list-item>
+
+      <h3 matSubheader>English</h3>
+      <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>MangaFox</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>MangaPark</h3>
+      </mat-list-item>
+
+      <h3 matSubheader>Extra</h3>
+      <mat-list-item>
+        <mat-icon matListIcon>get_app</mat-icon>
+        <h3 matLine>Downloads</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Files</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Grabber</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>swap_horiz</mat-icon>
+        <h3 matLine>Converter</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>settings</mat-icon>
+        <h3 matLine>Settings</h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <a *ngIf="sidenav.opened" (click)="sidenav.toggle()" href="javascript:void(0)">
+        <i class="material-icons">format_indent_decrease</i>
+      </a>
+      <a *ngIf="!sidenav.opened" (click)="sidenav.toggle()" href="javascript:void(0)">
+        <i class="material-icons">format_indent_increase</i>
+      </a>
+
+      <form class="example-form">
+        <mat-form-field>
+          <input matInput placeholder="Search">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </form>
+
+      <!-- This fills the remaining space of the current row -->
+      <span class="fill-remaining-space"></span>
+
+      <mat-icon>notifications_none</mat-icon>
+      <mat-icon>notifications_active</mat-icon>
+      <mat-icon>subject</mat-icon>
+    </mat-toolbar>
+
+    <h3>
+      Blogtruyen
+      <a href="http://blogtruyen.com" target="_blank">(blogtruyen.com)</a>
+    </h3>
+
+    <p>Manga List</p>
+
+    <mat-list>
+      <mat-list-item> Pepper </mat-list-item>
+      <mat-list-item> Salt </mat-list-item>
+      <mat-list-item> Paprika </mat-list-item>
+    </mat-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

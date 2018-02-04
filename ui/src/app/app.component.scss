@@ -1,0 +1,12 @@
+mat-sidenav-container {
+  width: 100%;
+  height: 100%;
+  mat-sidenav {
+    width: 230px;
+  }
+  mat-sidenav-content {
+    .fill-remaining-space {
+      flex: 1 1 auto;
+    }
+  }
+}
