@@ -1,0 +1,15 @@
+<app-modal #modal
+           closable="true"
+           class="hoiio">
+  <modal-header>{{ title }}</modal-header>
+  <modal-content>
+    <div [class.success]="isSuccess"
+         [class.error]="!isSuccess"
+         [innerHTML]="message | sanitizeHtml"></div>
+  </modal-content>
+  <modal-actions>
+    <button (click)="onOKClicked()"
+            class="ui default button"
+            type="button">OK</button>
+  </modal-actions>
+</app-modal>

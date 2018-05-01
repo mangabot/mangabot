@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "localhost:4000/?orgUuid=8cd84d49-a5e2-49ba-993d-a8a5257ac55d&sessionToken=02cb0d97-0333-4c09-9165-f45759b62bcd",
+      "webRoot": "${workspaceRoot}",
+      "sourceMaps": true
+    },
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "Attach Karma Chrome",
+      "address": "localhost",
+      "port": 4000,
+      "pathMapping": {
+        "/": "${workspaceRoot}",
+        "/base/": "${workspaceRoot}/"
+      }
+    },
+    {
+      "name": "Launch localhost with sourcemaps",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4000/",
+      "sourceMaps": true,
+      "webRoot": "${workspaceRoot}"
+    }
+  ]
+}
