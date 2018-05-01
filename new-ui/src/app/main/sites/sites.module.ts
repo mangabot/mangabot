@@ -7,8 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'app/shared/shared.module';
 import { CoreModule } from 'app/core/core.module';
 
-import { PaymentsComponent } from './payments.component';
-import { PaymentListComponent } from './payment-list/payment-list.component';
+import { SitesComponent } from './sites.component';
+import { SiteListComponent } from './site-list/site-list.component';
+import { MangaListComponent } from './manga-list/manga-list.component';
 
 
 @NgModule({
@@ -26,9 +27,10 @@ import { PaymentListComponent } from './payment-list/payment-list.component';
   ],
   providers: [],
   declarations: [
-    PaymentsComponent,
-    PaymentListComponent
+    SitesComponent,
+    SiteListComponent,
+    MangaListComponent
   ],
   exports: []
 })
-export class PaymentsModule { }
+export class SitesModule { }

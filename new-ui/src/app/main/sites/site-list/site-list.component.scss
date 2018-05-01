@@ -1,0 +1,32 @@
+.site-list {
+  display: flex;
+  padding: 1.5em 2em;
+  .site {
+    margin-left: 1.5em;
+    &:first-child {
+      margin-left: 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.75em;
+    }
+    .list {
+      background-color: #151b42;
+      >.item {
+        color: #fff;
+        padding: 0.75em 0.85em;
+        border: 2px solid #151b42;
+        cursor: pointer;
+        img {
+          width: 36px;
+          vertical-align: middle;
+          margin-right: 1em;
+          border-radius: 50%;
+        }
+        &:hover {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+}

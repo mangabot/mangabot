@@ -1,0 +1,21 @@
+.tab-bar {
+  display: flex;
+  >.item {
+    flex-grow: 1;
+    text-align: center;
+    background-color: #151b42;
+    padding: 0.7rem 0;
+    margin-left: 2px;
+    cursor: pointer;
+    &:hover {
+      color: #ffffff;
+    }
+    &.active {
+      color: #ffffff;
+      background: linear-gradient(to right, #6252D1, #2E71BE);
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

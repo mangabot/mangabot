@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.route.data.pipe(
       filter(data => data.user != null)
-    ).subscribe(() => console.log('App'));
+    ).subscribe(() => {
+      this.router.navigate(['/sites']);
+    });
   }
 }

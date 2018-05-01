@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainComponent } from './main.component';
 
-import { paymentsRoutes } from './payments/payments-routing.module';
+import { sitesRoutes } from './sites/sites-routing.module';
 
 const routes: Routes = [
   {
-    path: 'main',
+    path: '',
     component: MainComponent,
     children: [
-      ...paymentsRoutes
+      ...sitesRoutes
     ]
   }
 ];

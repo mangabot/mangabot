@@ -12,14 +12,16 @@ import { MainComponent } from './main.component';
 import { MainRoutingModule } from './main-routing.module';
 
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
-import { PaymentsModule } from './payments/payments.module';
+import { SitesModule } from './sites/sites.module';
 
 
 @NgModule({
   declarations: [
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,7 @@ import { PaymentsModule } from './payments/payments.module';
 
     MainRoutingModule,
 
-    PaymentsModule
+    SitesModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

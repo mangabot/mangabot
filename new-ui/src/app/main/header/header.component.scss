@@ -1,0 +1,26 @@
+.main-title-bar {
+  background-color: #0f142d;
+  color: #5a6c91;
+  padding: 0.75rem 0.85rem;
+  .menu-toggle {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 1.15rem;
+    cursor: pointer;
+    &:hover {
+      color: #cccccc;
+    }
+  }
+  .title {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+  .right-menu {
+    float: right;
+    >.item {
+      float: right;
+      margin-left: 1rem;
+    }
+  }
+}
