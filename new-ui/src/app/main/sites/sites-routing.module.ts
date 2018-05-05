@@ -10,7 +10,7 @@ export const sitesRoutes: Routes = [
     component: SitesComponent,
     children: [
       { path: '', component: SiteListComponent },
-      { path: ':site', component: MangaListComponent }
+      { path: ':id', component: MangaListComponent }
     ]
   }
 ];

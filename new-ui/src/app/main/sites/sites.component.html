@@ -1,10 +1,26 @@
 <ul *ngIf="showTabbar"
     class="tab-bar">
-  <li class="active item">Sites</li>
-  <li class="item">Tasks</li>
-  <li class="item">Grabber</li>
-  <li class="item">Converter</li>
-  <li class="item">Advanced Search</li>
+
+  <li [routerLink]="['/sites']"
+      routerLinkActive="active"
+      class="active item">Sites</li>
+
+  <li [routerLink]="['/tasks']"
+      routerLinkActive="active"
+      class="item">Tasks</li>
+
+  <li [routerLink]="['/grabber']"
+      routerLinkActive="active"
+      class="item">Grabber</li>
+
+  <li [routerLink]="['/converter']"
+      routerLinkActive="active"
+      class="item">Converter</li>
+
+  <li [routerLink]="['/search']"
+      routerLinkActive="active"
+      class="item">Advanced Search</li>
+
 </ul>
 
 

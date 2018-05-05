@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { SiteService, Site } from 'app/core';
 
 @Component({
   selector: 'app-site-list',
@@ -7,9 +8,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class SiteListComponent implements OnInit {
 
-  constructor() { }
+  vnSites = new Array<Site>();
+  enSites = new Array<Site>();
+
+  constructor(private siteService: SiteService) { }
 
   ngOnInit() {
-
+    this.vnSites = this.siteService.getVNSites();
+    this.enSites = this.siteService.getENSites();
   }
 }

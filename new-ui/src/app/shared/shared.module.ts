@@ -40,7 +40,9 @@ import * as s from './';
   ],
   providers: [
     s.MessageBox,
-    s.DownloadService
+    s.DownloadService,
+    s.HttpCall,
+    s.PageSourceService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

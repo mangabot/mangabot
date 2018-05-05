@@ -3,20 +3,10 @@
     <label>Vietnamese</label>
 
     <ul class="list">
-      <li class="item">
-        <img src="assets/sites/blogtruyen.jpg"> Blogtruyen
-      </li>
-      <li class="item">
-        <img src="assets/sites/blogtruyen.jpg"> Blogtruyen
-      </li>
-      <li class="item">
-        <img src="assets/sites/blogtruyen.jpg"> Blogtruyen
-      </li>
-      <li class="item">
-        <img src="assets/sites/blogtruyen.jpg"> Blogtruyen
-      </li>
-      <li class="item">
-        <img src="assets/sites/blogtruyen.jpg"> Blogtruyen
+      <li *ngFor="let site of vnSites"
+          [routerLink]="[site.id]"
+          class="item">
+        <img [src]="site.logo">{{site.name}}
       </li>
     </ul>
   </div>
@@ -25,17 +15,10 @@
     <label>English</label>
 
     <ul class="list">
-      <li class="item">
-        <img src="assets/sites/mangafox.png"> Mangafox
-      </li>
-      <li class="item">
-        <img src="assets/sites/mangafox.png"> Mangafox
-      </li>
-      <li class="item">
-        <img src="assets/sites/mangafox.png"> Mangafox
-      </li>
-      <li class="item">
-        <img src="assets/sites/mangafox.png"> Mangafox
+      <li *ngFor="let site of enSites"
+          [routerLink]="[site.id]"
+          class="item">
+        <img [src]="site.logo">{{site.name}}
       </li>
     </ul>
   </div>

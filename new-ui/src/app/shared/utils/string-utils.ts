@@ -9,4 +9,8 @@ export class StringUtils {
   static isNotBlank(str: string): boolean {
     return !this.isBlank(str);
   }
+
+  static trimAll(str: string): string {
+    return str == null ? "" : str.replace(/(^\s+|\s+$)/g, '');
+  }
 }

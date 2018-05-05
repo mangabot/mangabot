@@ -24,7 +24,9 @@ import * as c from './';
       provide: HTTP_INTERCEPTORS,
       useClass: CredentialInterceptor,
       multi: true
-    }
+    },
+    c.SiteService,
+    c.BlogTruyenService
   ]
 })
 export class CoreModule { }

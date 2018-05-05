@@ -13,6 +13,8 @@ export * from './pipes/sanitize-html.pipe';
 // Services
 export * from './services/message-box.service';
 export * from './services/download.service';
+export * from './services/http-call.service';
+export * from './services/pagesource.service';
 
 // Components
 export * from './components/modal.component';
