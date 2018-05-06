@@ -1,4 +1,5 @@
-.tab-bar {
+@import 'src/variables';
+.tabbar {
   display: flex;
   >.item {
     flex-grow: 1;
@@ -18,4 +19,13 @@
       margin-left: 0;
     }
   }
+}
+
+.content-container {
+  overflow: hidden;
+  height: calc(100% - #{$main-title-bar-height} - #{$footer-bar-height});
+}
+
+.tabbar+.content-container {
+  height: calc(100% - #{$main-title-bar-height} - #{$top-tabbar-height} - #{$footer-bar-height});
 }

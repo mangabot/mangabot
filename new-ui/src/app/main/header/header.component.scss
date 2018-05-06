@@ -2,25 +2,34 @@
   background-color: #0f142d;
   color: #5a6c91;
   padding: 0.75rem 0.85rem;
+  display: flex;
   .menu-toggle {
     vertical-align: middle;
     display: inline-block;
     margin-right: 1.15rem;
     cursor: pointer;
     &:hover {
-      color: #cccccc;
+      color: #92a6d0;
     }
   }
   .title {
     display: inline-block;
     padding: 0;
     margin: 0;
+    font-weight: normal;
   }
   .right-menu {
-    float: right;
+    margin-left: auto;
+    align-self: center;
     >.item {
       float: right;
       margin-left: 1rem;
+      padding: 0.3em 0.5em;
+      cursor: default;
+      &:hover {
+        color: #92a6d0;
+        background-color: #1E234E;
+      }
     }
   }
 }

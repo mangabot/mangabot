@@ -10,6 +10,9 @@ import { CoreModule } from 'app/core/core.module';
 import { SitesComponent } from './sites.component';
 import { SiteListComponent } from './site-list/site-list.component';
 import { MangaListComponent } from './manga-list/manga-list.component';
+import { MangaListRowComponent } from './manga-list/manga-list-row.component';
+import { ChapterListComponent } from './manga-list/chapter-list.component';
+import { ChapterListRowComponent } from './manga-list/chapter-list-row.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { MangaListComponent } from './manga-list/manga-list.component';
   declarations: [
     SitesComponent,
     SiteListComponent,
-    MangaListComponent
+    MangaListComponent,
+    MangaListRowComponent,
+    ChapterListComponent,
+    ChapterListRowComponent
   ],
   exports: []
 })

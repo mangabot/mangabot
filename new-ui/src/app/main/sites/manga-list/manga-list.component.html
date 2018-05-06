@@ -1,87 +1,70 @@
 <div class="navbar">
-  <a class="back">
-    <i class="material-icons md-36">arrow_back</i>
+  <a [routerLink]="['../']"
+     class="back">
+    <i class="material-icons md-24">arrow_back</i>
   </a>
 
   <div class="title">
-    <h3>Blogtruyen</h3>
+    <h3>{{activatedSite?.name}}</h3>
     <div>
-      <span>1850 items</span>
-      <span>/</span>
-      <span>Last updated at 05:20 AM, Wed 25th 2018</span>
+      <span><b>{{activatedSite?.totalManga}}</b> items</span>
+      <span>.</span>
+      <span>Last updated at <b>{{activatedSite?.updatedDate | date:'yyyy-MM-dd hh:mm a'}}</b></span>
     </div>
   </div>
 </div>
 
 <div class="list-container">
-  <table class="bordered">
+  <div class="table">
+    <div class="head">
+      <div class="row">
+        <div class="column">Name</div>
+        <div class="column">Action</div>
+      </div>
+    </div>
+    <div class="body">
+      <ng-container *ngFor="let manga of mangaList">
+        <div #mangaListRow
+             manga-list-row
+             [manga]="manga"
+             class="row"></div>
+
+        <div *ngIf="mangaListRow.expanded"
+             class="row">
+          <div #chapterList
+               chapter-list
+               [manga]="manga"
+               class="column"></div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- <table class="bordered">
     <thead>
       <tr>
-        <th>No.</th>
+        <th></th>
         <th>Name</th>
         <th>Action</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr>
-        <td>190</td>
-        <td>Death Note Oneshot</td>
-        <td>
-          <a>Download</a>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="3">
+      <ng-container *ngFor="let manga of mangaList">
+        <tr #mangaListRow
+            manga-list-row
+            [manga]="manga">
 
-          <table>
-            <tbody>
-              <tr>
-                <td>Death Note Chapter 1</td>
-                <td>
-                  <a>Download</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Death Note Chapter 2</td>
-                <td>
-                  <a>Download</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        </tr>
 
-        </td>
-      </tr>
-      <tr>
-        <td>190</td>
-        <td>Death Note Oneshot</td>
-        <td>
-          <a>Download</a>
-        </td>
-      </tr>
-      <tr>
-        <td>190</td>
-        <td>Death Note Oneshot</td>
-        <td>
-          <a>Download</a>
-        </td>
-      </tr>
-      <tr>
-        <td>190</td>
-        <td>Death Note Oneshot</td>
-        <td>
-          <a>Download</a>
-        </td>
-      </tr>
-      <tr>
-        <td>190</td>
-        <td>Death Note Oneshot</td>
-        <td>
-          <a>Download</a>
-        </td>
-      </tr>
+        <tr *ngIf="mangaListRow.expanded">
+          <td #chapterList
+              chapter-list
+              [manga]="manga"
+              colspan="3"></td>
+        </tr>
+      </ng-container>
     </tbody>
 
-  </table>
+  </table> -->
 </div>

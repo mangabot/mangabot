@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +7,9 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.route.data.subscribe(() => {
-      this.router.navigate(['/sites']);
-    });
+
   }
 }

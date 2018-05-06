@@ -26,7 +26,8 @@ import * as c from './';
       multi: true
     },
     c.SiteService,
-    c.BlogTruyenService
+    c.ScraperFactoryService,
+    c.BlogTruyenScraperService
   ]
 })
 export class CoreModule { }

@@ -1,3 +1,4 @@
+import { StringUtils } from 'app/shared';
 import { SiteType } from "./site.model";
 
 export class Chapter {
@@ -8,6 +9,7 @@ export class Chapter {
   site: string;
 
   constructor(name?: string, url?: string) {
+    this.id = StringUtils.createUUID();
     this.name = name;
     this.url = url;
   }

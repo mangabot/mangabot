@@ -12,3 +12,73 @@
     font-size: 48px;
   }
 }
+
+.text-right {
+  text-align: right;
+}
+
+a.action {
+  cursor: pointer;
+}
+
+.checkbox {
+  position: relative;
+  border: 1px solid #3882fd;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  i {
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.table {
+  width: 100%;
+  >.head,
+  >.body {
+    >.row {
+      display: flex;
+      align-items: center;
+      >.column {
+        flex-grow: 1;
+        margin: 0.25em 0.75em;
+        padding-left: 0.75em;
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  >.head>.row {
+    color: #606877;
+    background-color: #1E234E;
+    border-bottom: 1px solid #151A40;
+    >.column {
+      // padding: 0.25em 0.75em;
+      border-left: 1px solid #2E3459;
+      &:first-child {
+        border-left: 0;
+      }
+    }
+  }
+  >.body {
+    $head-height: 24px;
+    height: calc(100% - #{$head-height});
+    overflow-y: auto;
+    >.row {
+      background-color: #171C46;
+      border-bottom: 1px solid #181C3D;
+      &:hover,
+      &.active {
+        background-color: #13173A;
+      }
+      >.column {
+        // padding: 0.25em 0.75em;
+      }
+    }
+  }
+}

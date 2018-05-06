@@ -4,31 +4,31 @@
     position: absolute;
     background-color: #0065CB;
     color: #fff;
-    padding: 0 8px;
+    padding: 4px 8px;
   }
   .title {
-    margin-left: 75px;
+    margin-left: 55px;
     h3 {
-      margin: 0;
+      margin: 0 0 .5rem;
     }
   }
 }
 
+$navbar-height: 41px;
+$navbar-margin-top: 1.25em;
+$list-container-padding-top: 1.5em;
 .list-container {
-  padding: 1.5em 2em 1.5em 75px;
-  table.bordered {
-    width: 100%;
-    border-collapse: collapse;
-    >thead>tr>th {
-      background-color: #1E234E;
-      border-bottom: 1px solid #151A40;
-      text-align: left;
-      padding: 0.25em 0.75em;
-    }
-    >tbody>tr>td {
-      background-color: #191E47;
-      border-bottom: 1px solid #181C3D;
-      padding: 0.25em 0.75em;
+  padding: 1.5em 2em 0 55px;
+  height: calc(100% - #{$navbar-height} - #{$navbar-margin-top} - #{$list-container-padding-top} - 2.5em);
+  .table {
+    height: 100%;
+    .column {
+      &:first-child {
+        width: 80%;
+      }
+      &:last-child {
+        width: 20%;
+      }
     }
   }
 }

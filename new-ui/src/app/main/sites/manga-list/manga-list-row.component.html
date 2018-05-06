@@ -1,0 +1,24 @@
+<div class="column">
+  <a class="checkbox">
+    <i *ngIf="expanded"
+       class="material-icons">check</i>
+  </a>
+  <span>{{manga.name}}</span>
+</div>
+<div class="text-right column">
+  <a (click)="addToQueue()"
+     class="action">
+    <i class="material-icons">playlist_add</i>
+  </a>
+
+  <a *ngIf="!expanded"
+     (click)="toggleExpanded()"
+     class="action">
+    <i class="material-icons">arrow_drop_down</i>
+  </a>
+  <a *ngIf="expanded"
+     (click)="toggleExpanded()"
+     class="action">
+    <i class="material-icons">arrow_drop_up</i>
+  </a>
+</div>

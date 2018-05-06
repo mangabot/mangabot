@@ -1,17 +1,17 @@
 import { Injectable } from "@angular/core";
-import { Site, BlogTruyen, IZManga, MangaVN, MangaFox, KissManga } from "./site.model";
-import { BaseSiteService } from './base-site.service';
-import { Manga } from "./manga.model";
-import { Chapter } from './chapter.model';
-import { PageSourceService, StringUtils } from "app/shared";
 import { environment } from 'environments/environment';
-import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { PageSourceService, StringUtils } from "app/shared";
+import { ScraperService } from './scraper.service';
+import { Site, BlogTruyen, IZManga, MangaVN, MangaFox, KissManga } from "../site/site.model";
+import { Manga } from "../site/manga.model";
+import { Chapter } from '../site/chapter.model';
 
 declare var $: any;
 
 @Injectable()
-export class BlogTruyenService implements BaseSiteService {
+export class BlogTruyenScraperService implements ScraperService {
 
   private listUrl = "http://blogtruyen.com/ajax/Search/AjaxLoadListManga?key=tatca&orderBy=1&p=";
 
@@ -54,7 +54,7 @@ export class BlogTruyenService implements BaseSiteService {
           let subReg = new RegExp(nameAndUrlFilter, 'gmi');
           let subMatch: any = subReg.exec(match.groups['TEXT']);
           let name = StringUtils.trimAll(subMatch.groups['MANGA_NAME']);
-          let url = subMatch.groups['MANGA_URL'];
+          let url = StringUtils.fixUrl('http://blogtruyen.com', subMatch.groups['MANGA_URL']);
           if (name != null && url != null) {
             results.push(new Manga(name, url));
           }
@@ -79,7 +79,7 @@ export class BlogTruyenService implements BaseSiteService {
           let chapBlk = chapterBlocks[i];
           let title = $(chapBlk).find('.title a');
           let name = StringUtils.trimAll($(title).html());
-          let url = $(title).attr('href').replace(/\.\.\//gi, '');
+          let url = StringUtils.fixUrl('http://blogtruyen.com', $(title).attr('href').replace(/\.\.\//gi, ''));
           if (name != null && url != null) {
             results.push(new Chapter(name, url));
           }

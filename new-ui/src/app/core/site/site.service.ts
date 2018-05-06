@@ -15,5 +15,7 @@ export class SiteService {
     return [MangaFox, KissManga];
   }
 
-
+  getSites(): Array<Site> {
+    return [BlogTruyen, IZManga, MangaVN, MangaFox, KissManga];
+  }
 }
