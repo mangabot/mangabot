@@ -1,11 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
-import { Site, SiteService, ScraperFactoryService, SiteType, Manga, Chapter, ScraperService } from 'src/app/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Chapter, Manga, ScraperFactoryService, ScraperService, SiteService, SiteType } from 'src/app/core';
 
 @Component({
   selector: '[chapter-list]',
-  templateUrl: './chapter-list.component.html'
+  templateUrl: './chapter-list.component.html',
+  styles: [`
+  .table .column:last-child {
+    flex: 0 0 90px;
+  }
+  `]
 })
 export class ChapterListComponent implements OnInit {
   @Input("manga") manga: Manga;

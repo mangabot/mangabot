@@ -23,11 +23,12 @@ $list-container-padding-top: 1.5em;
   .table {
     height: 100%;
     .column {
-      &:first-child {
-        width: 80%;
-      }
+      &:first-child {}
       &:last-child {
-        width: 20%;
+        flex: 0 0 115px;
+      }
+      &.stretched {
+        flex-grow: 1;
       }
     }
   }

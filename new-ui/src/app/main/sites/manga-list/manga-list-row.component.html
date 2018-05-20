@@ -12,6 +12,11 @@
     <i class="material-icons">playlist_add</i>
   </a>
 
+  <span *ngIf="true"
+        class="green-text">
+    <i class="material-icons">playlist_add_check</i>
+  </span>
+
   <a *ngIf="!expanded"
      (click)="toggleExpanded()"
      class="action">
