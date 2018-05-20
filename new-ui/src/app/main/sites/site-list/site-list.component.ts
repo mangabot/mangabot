@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SiteService, Site } from 'app/core';
+import { SiteService, Site } from 'src/app/core';
 
 @Component({
   selector: 'app-site-list',

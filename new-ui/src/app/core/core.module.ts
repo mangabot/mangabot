@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { SharedModule } from 'app/shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { CredentialInterceptor } from './credential.interceptor';
 import * as c from './';
 

@@ -1,4 +1,4 @@
-import { StringUtils } from 'app/shared';
+import { StringUtils } from 'src/app/shared';
 import { SiteType } from "./site.model";
 
 export class Chapter {

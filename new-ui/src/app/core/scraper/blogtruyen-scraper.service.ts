@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
-import { environment } from 'environments/environment';
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { PageSourceService, StringUtils } from "app/shared";
-import { ScraperService } from './scraper.service';
-import { Site, BlogTruyen, IZManga, MangaVN, MangaFox, KissManga } from "../site/site.model";
-import { Manga } from "../site/manga.model";
+import { PageSourceService, StringUtils } from "src/app/shared";
+import { environment } from 'src/environments/environment';
 import { Chapter } from '../site/chapter.model';
+import { Manga } from "../site/manga.model";
+import { ScraperService } from './scraper.service';
 
 declare var $: any;
 

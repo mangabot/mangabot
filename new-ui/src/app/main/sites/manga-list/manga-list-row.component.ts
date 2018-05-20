@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
-import { Site, SiteService, ScraperFactoryService, SiteType, Manga, Chapter, ScraperService } from 'app/core';
+import { Site, SiteService, ScraperFactoryService, SiteType, Manga, Chapter, ScraperService } from 'src/app/core';
 
 @Component({
   selector: '[manga-list-row]',

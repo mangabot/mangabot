@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 // External libraries modules
 
 // App modules
-import { CoreModule } from 'app/core/core.module';
-import { SharedModule } from 'app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { MainComponent } from './main.component';
 import { MainRoutingModule } from './main-routing.module';

@@ -1,7 +1,7 @@
 // import { ipcRenderer } from 'electron';
 
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 declare var fetch: any;
 
@@ -22,7 +22,7 @@ export class HttpCall {
 
 
   getText(url: string): Observable<string> {
-    return Observable.fromPromise(
+    return from(
       fetch(url).then(res => {
         // must call this to next `then` can parse result
         return res.text();
@@ -31,7 +31,7 @@ export class HttpCall {
   }
 
   getJson(url: string): Observable<{}> {
-    return Observable.fromPromise(
+    return from(
       fetch(url).then(res => {
         // must call this to next `then` can parse result
         return res.json();

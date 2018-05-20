@@ -1,8 +1,6 @@
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/observable/of';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 declare var X: any;
@@ -25,7 +23,7 @@ export class CredentialInterceptor implements HttpInterceptor {
     return next.handle(authReq).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err.status >= 200 && err.status < 300) {
-          return Observable.of(new HttpResponse({
+          return of(new HttpResponse({
             body: null,
             headers: err.headers,
             status: err.status,
@@ -33,7 +31,7 @@ export class CredentialInterceptor implements HttpInterceptor {
             url: err.url
           }));
         } else {
-          return Observable.throw(err.error);
+          return throwError(err.error);
         }
       })
     );

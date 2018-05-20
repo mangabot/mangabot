@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
-import { Site, SiteService, ScraperFactoryService, SiteType, Manga, Chapter, ScraperService } from 'app/core';
+import { filter, map, repeat, switchMap, tap } from 'rxjs/operators';
+import { Chapter, Manga, ScraperFactoryService, ScraperService, Site, SiteService, SiteType } from 'src/app/core';
 
 @Component({
   selector: 'app-manga-list',
@@ -37,9 +37,26 @@ export class MangaListComponent implements OnInit {
       this.loading = true;
       this.activatedSite = this.sites.find(s => s.type === SiteType[SiteType[id]]);
       this.scraper = this.scraperFactoryService.getScraper(SiteType[this.activatedSite.type]);
-      this.scraper.getTotalPages().subscribe(total => this.totalPages = total);
-      this.scraper.getMangaList(3).subscribe(list => this.mangaList = list);
-      this.scraper.getChapterList("http://blogtruyen.com/14183/rebirth").subscribe(list => console.log(list));
+
+      this.mangaList = new Array();
+
+      this.scraper.getTotalPages().pipe(
+        tap(total => this.totalPages = total),
+        switchMap(total => this.scraper.getMangaList(4).pipe(
+          repeat(5),
+          tap(a => {
+            console.log(a);
+          })
+        ))
+      ).subscribe(() => {
+
+      }, null, () => {
+        this.loading = false;
+        console.log('Fetch manga completed.')
+      });
+
+      this.scraper.getChapterList("http://blogtruyen.com/14183/rebirth")
+        .subscribe(list => { });
     });
   }
 

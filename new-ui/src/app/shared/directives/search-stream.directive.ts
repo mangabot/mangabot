@@ -1,5 +1,6 @@
-import { Directive, Output, EventEmitter, AfterViewInit, ElementRef } from "@angular/core";
-import { Observable } from 'rxjs';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, Output } from "@angular/core";
+import { fromEvent } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 
 declare var $: any;
 
@@ -15,11 +16,11 @@ export class SearchStreamDirective implements AfterViewInit {
 
   private bindEvent() {
     let $input = $(this.eleRef.nativeElement);
-    Observable.fromEvent($input, 'keyup')
-      .map((e: any) => e.target.value)
-      .filter(text => text.length > 1)
-      .debounceTime(500)
-      .distinctUntilChanged()
-      .subscribe(text => this.search.emit(text));
+    fromEvent($input, 'keyup').pipe(
+      map((e: any) => e.target.value),
+      filter(text => text.length > 1),
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe(text => this.search.emit(text));
   }
 }

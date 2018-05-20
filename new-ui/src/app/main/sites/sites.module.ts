@@ -4,8 +4,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { SharedModule } from 'app/shared/shared.module';
-import { CoreModule } from 'app/core/core.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 import { SitesComponent } from './sites.component';
 import { SiteListComponent } from './site-list/site-list.component';
