@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/observable/of';
 import { catchError } from 'rxjs/operators';
 
 declare var X: any;
