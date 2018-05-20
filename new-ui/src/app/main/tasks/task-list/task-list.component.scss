@@ -1,0 +1,47 @@
+.navbar {
+  margin-top: 1.25em;
+  .back {
+    position: absolute;
+    background-color: #0065CB;
+    color: #fff;
+    padding: 4px 8px;
+  }
+  .title {
+    margin-left: 2em;
+    h3 {
+      margin: 0 0 .5rem;
+    }
+  }
+}
+
+$navbar-height: 41px;
+$navbar-margin-top: 1.25em;
+$list-container-padding-top: 1.5em;
+.list-container {
+  padding: 1.5em 2em 0;
+  height: calc(100% - #{$navbar-height} - #{$navbar-margin-top} - #{$list-container-padding-top} - 2.5em);
+  .table {
+    height: 100%;
+    .column {
+      &.name {
+        flex: 0 0 190px;
+      }
+      &.status {
+        flex: 0 0 80px;
+      }
+      &.type {
+        flex: 0 0 60px;
+      }
+      &.site {
+        flex: 0 0 90px;
+      }
+      &.options {
+        flex: 0 0 25px;
+        padding-left: 0;
+        .action:hover {
+          color: #92a6d0;
+        }
+      }
+    }
+  }
+}

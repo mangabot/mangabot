@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { SitesModule } from './sites/sites.module';
+import { TasksModule } from './tasks/tasks.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SitesModule } from './sites/sites.module';
 
     MainRoutingModule,
 
-    SitesModule
+    SitesModule,
+    TasksModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

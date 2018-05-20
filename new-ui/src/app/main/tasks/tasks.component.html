@@ -1,0 +1,29 @@
+<ul *ngIf="showTabbar"
+    class="tabbar very-large-font">
+
+  <li [routerLink]="['/sites']"
+      routerLinkActive="active"
+      class="item">Sites</li>
+
+  <li [routerLink]="['/tasks']"
+      routerLinkActive="active"
+      class="active item">Tasks</li>
+
+  <li [routerLink]="['/grabber']"
+      routerLinkActive="active"
+      class="item">Grabber</li>
+
+  <li [routerLink]="['/converter']"
+      routerLinkActive="active"
+      class="item">Converter</li>
+
+  <li [routerLink]="['/search']"
+      routerLinkActive="active"
+      class="item">Advanced Search</li>
+
+</ul>
+
+
+<div class="content-container">
+  <router-outlet></router-outlet>
+</div>

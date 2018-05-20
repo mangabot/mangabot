@@ -1,0 +1,31 @@
+@import 'src/variables';
+.tabbar {
+  display: flex;
+  >.item {
+    flex-grow: 1;
+    text-align: center;
+    background-color: #151b42;
+    padding: 0.7rem 0;
+    margin-left: 2px;
+    cursor: pointer;
+    &:hover {
+      color: #ffffff;
+    }
+    &.active {
+      color: #ffffff;
+      background: linear-gradient(to right, #6252D1, #2E71BE);
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.content-container {
+  overflow: hidden;
+  height: calc(100% - #{$main-title-bar-height} - #{$footer-bar-height});
+}
+
+.tabbar+.content-container {
+  height: calc(100% - #{$main-title-bar-height} - #{$top-tabbar-height} - #{$footer-bar-height});
+}
