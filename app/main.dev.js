@@ -20,8 +20,6 @@ import {
 } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
-import ioHook from 'iohook';
-// const ioHook = require('iohook');
 
 export default class AppUpdater {
   constructor() {
@@ -101,66 +99,6 @@ app.on('ready', async () => {
     mainWindow = null;
   });
 
-  let keys = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'];
-  // Register a 'CommandOrControl+X' shortcut listener.
-  const ret = globalShortcut.register('A',
-    (e) => {
-      console.log('Keystoke');
-      console.log(e);
-    })
-
-  if (!ret) {
-    console.log('registration failed');
-  }
-
-  // Check whether a shortcut is registered.
-  console.log(globalShortcut.isRegistered('CommandOrControl+X'));
-
-
-
-  mainWindow.hookWindowMessage(Number.parseInt('0x0112'), (wParam, lParam) => {
-    // Hook WM_SYSCOMMAND
-    let eventName = null;
-    if (wParam.readUInt32LE(0) == 0xF060) { //SC_CLOSE
-      eventName = 'close';
-    } else if (wParam.readUInt32LE(0) == 0xF030) { //SC_MAXIMIZE
-      eventName = 'maximize'
-    } else if (wParam.readUInt32LE(0) == 0xF020) { //SC_MINIMIZE
-      eventName = 'minimize'
-    } else if (wParam.readUInt32LE(0) == 0xF120) { //SC_RESTORE
-      eventName = 'restored'
-    }
-    if (eventName != null) {
-      console.log("WINDOWS " + (eventName));
-    }
-  });
-  mainWindow.hookWindowMessage(Number.parseInt('0x0100'), (wParam, lParam) => {
-    // Hook WM_KEYDOWN
-    let eventName = null;
-    let code = wParam.readUInt32LE(0);
-    switch (code) {
-      case 0x41:
-      case 0x42:
-      case 0x43:
-      case 0x44:
-      case 0x45:
-        eventName = 'Keystroke';
-        break;
-    }
-    if (wParam.readUInt32LE(0) == 0x41) { // A
-      eventName = 'A';
-    } else if (wParam.readUInt32LE(0) == 0xF030) { //SC_MAXIMIZE
-      eventName = 'maximize'
-    } else if (wParam.readUInt32LE(0) == 0xF020) { //SC_MINIMIZE
-      eventName = 'minimize'
-    } else if (wParam.readUInt32LE(0) == 0xF120) { //SC_RESTORE
-      eventName = 'restored'
-    }
-    if (eventName != null) {
-      console.log("WINDOWS " + (eventName));
-    }
-  });
-
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
 
@@ -168,25 +106,3 @@ app.on('ready', async () => {
   // eslint-disable-next-line
   new AppUpdater();
 });
-
-app.on('will-quit', () => {
-  // Unregister a shortcut.
-  globalShortcut.unregister('CommandOrControl+X');
-
-  // Unregister all shortcuts.
-  globalShortcut.unregisterAll();
-})
-
-
-
-
-ioHook.on('keydown', event => {
-  console.log(event); // { type: 'mousemove', x: 700, y: 400 }
-});
-
-// Register and start hook
-ioHook.start();
-
-// Alternatively, pass true to start in DEBUG mode.
-ioHook.start(true);
-1
