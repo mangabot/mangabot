@@ -1,0 +1,33 @@
+.container {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.name,
+.index {
+  color: #dad8fa;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.index {
+  
+}
+
+.item {
+}
+
+.item:hover {
+  background: #363656;
+  color: #dad8fa;
+  box-shadow: 0 2px 4px 0 rgba(43, 45, 73, 0.35);
+}
+
+.active {
+  background: #363656;
+  color: #dad8fa;
+  box-shadow: 0 2px 4px 0 rgba(43, 45, 73, 0.35);
+}

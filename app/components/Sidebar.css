@@ -1,0 +1,21 @@
+.container {
+  width: 370px;
+  height: 100%;
+  background: #3f3f5f;
+  box-shadow: 0 2px 4px 0 rgba(43, 43, 71, 0.2);
+}
+
+.searchInput {
+  padding: 0.8rem 0;
+}
+
+.title {
+  background-color: #363656;
+  padding: 0.8rem 0;
+  color: #cac8ee;
+}
+
+.toggle {
+  text-decoration: none !important;
+  color: #cac8ee !important;
+}

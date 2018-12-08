@@ -164,6 +164,25 @@ export default merge.smart(baseConfig, {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
         use: 'url-loader'
+      },
+      // Markdown
+      {
+        test: /\.(md)$/,
+        use: [
+          'html-loader',
+          {
+            loader: 'markdown-loader',
+            options: {
+              highlight: (code, lang) => {
+                if (!lang || ['text', 'literal', 'nohighlight'].includes(lang)) {
+                  return `<pre class="hljs">${code}</pre>`;
+                }
+                // const html = highlight.highlight(lang, code).value;
+                // return `<span class="hljs">${html}</span>`;
+              },
+            },
+          },
+        ],
       }
     ]
   },

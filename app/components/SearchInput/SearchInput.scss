@@ -1,0 +1,35 @@
+.searchInputContainer {
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+  color: #cac8ee !important;
+}
+
+.searchInputText {
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-right: 0 !important;
+  background-color: transparent !important;
+  > i {
+    color: #cac8ee !important;
+  }
+}
+
+.searchInput {
+  border: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  color: #cac8ee !important;
+}
+
+.searchInput::placeholder {
+  color: #cac8ee !important;
+  opacity: 0.75;
+}
+.searchInput:-ms-input-placeholder {
+  color: #cac8ee !important;
+  opacity: 0.75;
+}
+.searchInput::-ms-input-placeholder {
+  color: #cac8ee !important;
+  opacity: 0.75;
+}
