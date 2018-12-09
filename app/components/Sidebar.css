@@ -1,16 +1,15 @@
 .container {
   width: 370px;
   height: 100%;
-  background: #3f3f5f;
-  box-shadow: 0 2px 4px 0 rgba(43, 43, 71, 0.2);
+  background: var(--bg-color-1);
 }
 
 .searchInput {
   padding: 0.8rem 0;
+  border-bottom: 1px solid var(--bg-color-2);
 }
 
 .title {
-  background-color: #363656;
   padding: 0.8rem 0;
-  color: #cac8ee;
+  height: 64px;
 }

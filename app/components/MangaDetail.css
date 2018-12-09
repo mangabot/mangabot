@@ -1,0 +1,15 @@
+.container {
+  height: 100%;
+}
+
+.heading {
+  height: 64px;
+}
+
+.mangaInfo {
+  background-color: var(--bg-color-2);
+}
+
+.description {
+  border-top: 1px solid var(--border-color-1);
+}

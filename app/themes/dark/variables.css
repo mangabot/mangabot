@@ -1,0 +1,22 @@
+:root {
+  --base-color-yellow: #fed42a;
+  --base-color-red: #ed4949;
+  --base-color-green: #20c05c;
+  --base-color-blue: #1c8ed7;
+
+  --main-bg-color: #353c42;
+  --bg-color-1: #30363c;
+  --bg-color-2: rgba(36, 41, 44, 0.5);
+
+  --main-text-color: #88939c;
+  --text-color-1: #5e6870;
+  --text-color-highlight: #fff;
+
+  --scrollbar-width: 6px;
+  --scrollbar-thumb-bg-color: var(--base-color-red);
+
+  --border-color-1: var(--base-color-yellow);
+  --border-color-2: var(--base-color-green);
+  --border-color-3: var(--base-color-blue);
+  --border-color-4: var(--base-color-red);
+}

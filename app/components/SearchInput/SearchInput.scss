@@ -9,9 +9,9 @@
   box-shadow: none !important;
   padding-right: 0 !important;
   background-color: transparent !important;
-  > i {
-    color: #cac8ee !important;
-  }
+  // > i {
+  //   color: #cac8ee !important;
+  // }
 }
 
 .searchInput {
@@ -21,15 +21,15 @@
   color: #cac8ee !important;
 }
 
-.searchInput::placeholder {
-  color: #cac8ee !important;
-  opacity: 0.75;
-}
-.searchInput:-ms-input-placeholder {
-  color: #cac8ee !important;
-  opacity: 0.75;
-}
-.searchInput::-ms-input-placeholder {
-  color: #cac8ee !important;
-  opacity: 0.75;
-}
+// .searchInput::placeholder {
+//   color: #cac8ee !important;
+//   opacity: 0.75;
+// }
+// .searchInput:-ms-input-placeholder {
+//   color: #cac8ee !important;
+//   opacity: 0.75;
+// }
+// .searchInput::-ms-input-placeholder {
+//   color: #cac8ee !important;
+//   opacity: 0.75;
+// }

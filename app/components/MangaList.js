@@ -144,6 +144,9 @@ export default class MangaList extends Component {
 
   handleSelected = mangaId => e => {
     this.setState({ activeMangaId: mangaId });
+    this.props.onMangaSelected(
+      this.state.mangaList.find(manga => manga.id === mangaId)
+    );
   };
 
   render() {

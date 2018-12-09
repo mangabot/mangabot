@@ -1,0 +1,21 @@
+.scrollable {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.scrollable:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-bg-color);
+}

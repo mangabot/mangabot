@@ -1,0 +1,18 @@
+.nav .nav-item {
+  color: var(--main-text-color);
+  border-top: 1px solid var(--bg-color-2) !important;
+}
+
+.nav .nav-item:first-child {
+  border-top: 0 !important;
+}
+
+.nav .nav-item .nav-link {
+  color: var(--main-text-color);
+}
+
+.nav .nav-item.active .nav-link,
+.nav .nav-item .nav-link:hover {
+  color: var(--text-color-highlight);
+  background-color: var(--bg-color-2) !important;
+}

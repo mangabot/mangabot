@@ -18,15 +18,17 @@ export default class Sidebar extends Component {
   }
 
   render() {
+    const { onSiteSelected, onMangaSelected } = this.props;
+
     return (
       <div className={styles.container}>
-        <div className={styles.title}>
-          <SitesDropdown />
+        <div className={styles.title + ' heading'}>
+          <SitesDropdown onSiteSelected={onSiteSelected} />
         </div>
         <div className={styles.searchInput}>
           <SearchInput />
         </div>
-        <MangaList />
+        <MangaList onMangaSelected={onMangaSelected} />
       </div>
     );
   }

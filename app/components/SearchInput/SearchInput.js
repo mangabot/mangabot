@@ -25,7 +25,9 @@ export default class SearchInput extends Component {
     return (
       <InputGroup
         className={
-          styles.searchInputContainer + ' ' + (this.state.focus && styles.focus)
+          styles.searchInputContainer +
+          ' search-input ' +
+          (this.state.focus && styles.focus)
         }
       >
         <InputGroupAddon addonType="prepend">

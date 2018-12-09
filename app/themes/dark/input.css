@@ -1,0 +1,21 @@
+input::placeholder {
+  color: var(--text-color-1) !important;
+  opacity: 0.75;
+}
+
+input:-ms-input-placeholder {
+  color: var(--text-color-1) !important;
+  opacity: 0.75;
+}
+
+input::-ms-input-placeholder {
+  color: var(--text-color-1) !important;
+  opacity: 0.75;
+}
+
+input.search {
+}
+
+.search-input .input-group-prepend i {
+  color: var(--text-color-1) !important;
+}

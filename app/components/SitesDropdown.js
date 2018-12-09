@@ -73,6 +73,10 @@ export default class SitesDropdown extends Component {
 
   handleSiteSelected = siteId => e => {
     this.setState({ activeSiteId: siteId });
+
+    this.props.onSiteSelected(
+      this.state.sites.find(site => site.id === siteId)
+    );
   };
 
   render() {

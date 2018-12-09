@@ -1,0 +1,25 @@
+.dropdown-menu {
+  background-color: var(--main-bg-color);
+}
+
+.dropdown-header {
+  color: var(--text-color-1);
+}
+
+.dropdown-item {
+  color: var(--main-text-color);
+}
+
+.dropdown-item.active {
+  color: var(--text-color-highlight);
+  background-color: var(--bg-color-1);
+}
+
+.dropdown-item:hover {
+  color: var(--text-color-highlight);
+  background-color: var(--bg-color-1);
+}
+
+.dropdown-divider {
+  border-top-color: var(--text-color-1) !important;
+}

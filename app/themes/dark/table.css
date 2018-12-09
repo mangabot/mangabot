@@ -1,0 +1,13 @@
+.table thead th {
+  border-top: 0 !important;
+  border-bottom: 1px solid var(--text-color-1) !important;
+}
+
+.table td,
+.table th {
+  border-top-color: var(--text-color-1) !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--main-bg-color);
+}
