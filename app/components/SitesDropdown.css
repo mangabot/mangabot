@@ -1,0 +1,30 @@
+.toggle {
+  text-decoration: none !important;
+  color: #cac8ee !important;
+}
+
+.menu {
+  background: #3f3f5f !important;
+}
+
+.menuDivider {
+  border-top-color: #363656 !important;
+}
+
+.menuHeader {
+  color: #cac8ee !important;
+}
+
+.menuItem {
+  color: #cac8ee !important;
+}
+
+.menuItem:hover {
+  color: #cac8ee !important;
+  background: #363656 !important;
+}
+
+.menuItem.active {
+  color: #cac8ee !important;
+  background: #363656 !important;
+}
