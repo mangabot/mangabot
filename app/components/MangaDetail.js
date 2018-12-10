@@ -68,7 +68,7 @@ export default class MangaDetail extends Component {
 
           <div className={styles.chaptersContainer + ' mt-4 pl-3 pr-3'}>
             <Card>
-              <CardHeader>Chapter List</CardHeader>
+              <CardHeader>Chapters</CardHeader>
               <CardBody>
                 <Table hover responsive className={styles.chapters}>
                   <thead>
